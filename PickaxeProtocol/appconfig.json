@@ -7,13 +7,13 @@
     "GoogleStoreUrl": "https://play.google.com/store/apps/details?id=com.neocode.pickaxe",
     "AppStoreUrl": ""
   },
-    "ads": {
-        "ADMOB_BANNER_ID": "ca-app-pub-3940256099942544/6300978111",
-        "ADMOB_INTERSTITIAL_ID": "ca-app-pub-3940256099942544/1033173712",
-        "ADMOB_REWARDED_ID": "ca-app-pub-3940256099942544/5224354917",
-        "ADMOB_REWARDED_INTERSTITIAL_ID": "ca-app-pub-3940256099942544/5354046379",
-        "ADMOB_OPEN_ID": "ca-app-pub-3940256099942544/9257395921"
-    },
+  "ads": {
+    "ADMOB_BANNER_ID": "ca-app-pub-3940256099942544/6300978111",
+    "ADMOB_INTERSTITIAL_ID": "ca-app-pub-3940256099942544/1033173712",
+    "ADMOB_REWARDED_ID": "ca-app-pub-3940256099942544/5224354917",
+    "ADMOB_REWARDED_INTERSTITIAL_ID": "ca-app-pub-3940256099942544/5354046379",
+    "ADMOB_OPEN_ID": "ca-app-pub-8592370687990796/2598668207"
+  },
   "backend": {
     "Ranking": "0195c11a-a37d-738c-95f9-9ec778414c07"
   },
