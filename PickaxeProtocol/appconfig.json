@@ -1,12 +1,12 @@
 {
-    "webPage": {
-        "TelegramUrl": "https://www.telegrom.com",
-        "TwitterUrl": "https://www.twitter.com",
-        "PrivacyPolicyUrl": "https://www.privacypolicies.com/live/14b49a69-83f7-47ee-b8c6-001b0342f2d3",
-        "TermsOfService": "https://www.termsfeed.com/live/b25d0b87-5d0f-4b6d-9351-a685c2f9b424",
-		"GoogleStoreUrl":"https://play.google.com/store/apps/details?id=com.neocode.pickaxe",
-		"AppStoreUrl":""
-    },
+  "webPage": {
+    "TelegramUrl": "https://www.telegrom.com",
+    "TwitterUrl": "https://x.com/PICKAXEPROTOCOL?t=5HyFDKXsz9SMQ9Gtdznnyg&s=09",
+    "PrivacyPolicyUrl": "https://www.privacypolicies.com/live/14b49a69-83f7-47ee-b8c6-001b0342f2d3",
+    "TermsOfService": "https://www.termsfeed.com/live/b25d0b87-5d0f-4b6d-9351-a685c2f9b424",
+    "GoogleStoreUrl": "https://play.google.com/store/apps/details?id=com.neocode.pickaxe",
+    "AppStoreUrl": ""
+  },
     "ads": {
         "ADMOB_BANNER_ID": "ca-app-pub-3940256099942544/6300978111",
         "ADMOB_INTERSTITIAL_ID": "ca-app-pub-3940256099942544/1033173712",
