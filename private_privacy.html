@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy</title>
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.language-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-switch button {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.language-switch button.active {
+    background: #333;
+    color: #fff;
+}
+
+.lang-content {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.7;
+}
+
+.lang-content.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background: #f5f5f5;
+}
+
+.notice {
+    background: #f8f8f8;
+    padding: 14px;
+    border-left: 4px solid #555;
+    margin: 16px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="language-switch">
+    <button id="btnKR" class="active" onclick="changeLanguage('kr')">한국어</button>
+    <button id="btnEN" onclick="changeLanguage('en')">English</button>
+</div>
+
+<!-- 한국어 -->
+<div id="kr" class="lang-content active">
+    <!-- private_privacy_kr.html 의 body 내용 전체 붙여넣기 -->
+    <h1>개인정보처리방침</h1>
+    ...
+</div>
+
+<!-- 영어 -->
+<div id="en" class="lang-content">
+    <!-- private_privacy_en.html 의 body 내용 전체 붙여넣기 -->
+    <h1>Privacy Policy</h1>
+    ...
+</div>
+
+<script>
+function changeLanguage(lang) {
+
+    document.querySelectorAll('.lang-content')
+        .forEach(el => el.classList.remove('active'));
+
+    document.getElementById(lang)
+        .classList.add('active');
+
+    document.getElementById('btnKR')
+        .classList.remove('active');
+
+    document.getElementById('btnEN')
+        .classList.remove('active');
+
+    document.getElementById(
+        lang === 'kr' ? 'btnKR' : 'btnEN'
+    ).classList.add('active');
+}
+</script>
+
+</body>
+</html>
