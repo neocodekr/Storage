@@ -1,2 +1,4 @@
 User-agent: Google-adstxt
 Disallow:
+
+Sitemap: https://neocode.cloud/sitemap.xml
