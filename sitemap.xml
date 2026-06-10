@@ -1,3 +1,9 @@
-<title>Fake GPS: Mock Location & GPS Joystick App</title>
-<meta name="description" content="Set mock GPS location, move with joystick, adjust speed, and save favorite locations.">
-<meta name="robots" content="index, follow">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://neocode.cloud/FakeGPS/index.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
