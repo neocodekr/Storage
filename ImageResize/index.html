@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Modify - 이미지 수정 도구</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="logo-btn" id="logoBtn" title="클릭하여 전체 보기">
+                <canvas id="logoCanvas" width="50" height="50"></canvas>
+            </button>
+            <nav class="feature-tabs">
+                <button class="tab-btn active" data-feature="resize">Image Resizer</button>
+                <button class="tab-btn" data-feature="crop">Image Crop</button>
+                <button class="tab-btn" data-feature="rename">Image Rename</button>
+                <button class="tab-btn" data-feature="compress">Image Compress</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 업로드 섹션 -->
+            <section class="upload-section">
+                <div class="upload-box">
+                    <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                    <label for="imageInput" class="upload-label">
+                        <div class="upload-icon">📁</div>
+                        <p>이미지를 클릭하거나 드래그하세요</p>
+                        <small>PNG, JPG, GIF 등 모든 이미지 형식 지원</small>
+                    </label>
+                </div>
+            </section>
+
+            <!-- 이미지 리스트 (로드 후 표시) -->
+            <section id="imageListSection" class="image-list-section" style="display: none;">
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    <div style="flex: 1;">
+                        <h3>📸 로드된 이미지</h3>
+                        <div id="imageList" class="image-list"></div>
+                    </div>
+                    <!-- 이미지 정보 (로드 후 표시) -->
+                    <div id="imageInfo" class="image-info-compact">
+                        <div class="info-item-compact">
+                            <span class="label">파일명:</span>
+                            <span class="value" id="fileName">-</span>
+                        </div>
+                        <div class="info-item-compact">
+                            <span class="label">크기:</span>
+                            <span class="value" id="fileSize">-</span>
+                        </div>
+                        <div class="info-item-compact">
+                            <span class="label">해상도:</span>
+                            <span class="value" id="resolution">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 기능 섹션 -->
+            <section id="editorSection" class="editor-section" style="display: none;">
+                <div class="editor-container">
+                    <!-- 왼쪽: 미리보기 -->
+                    <div class="preview-panel" id="previewPanel">
+                        <h3>미리보기</h3>
+                        <div class="preview-box">
+                            <div class="canvas-wrapper">
+                                <canvas id="canvas"></canvas>
+                            </div>
+                        </div>
+                        <button id="expandBtn" class="btn-expand-arrow" title="레이아웃 넓히기 / 닫기">
+                            <span class="arrow-icon">⤢</span>
+                        </button>
+                    </div>
+
+                    <!-- 오른쪽: 컨트롤 패널 -->
+                    <div class="control-panel">
+                        <!-- 리사이즈 -->
+                        <div class="control-section" data-section="resize">
+                            <h3>📐 리사이즈</h3>
+                            <div class="control-group">
+                                <label>
+                                    <input type="radio" name="resizeMode" value="pixels" checked> 픽셀 (px)
+                                </label>
+                                <label>
+                                    <input type="radio" name="resizeMode" value="percent"> 백분율 (%)
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <label for="resizeWidth">가로:</label>
+                                <input type="number" id="resizeWidth" min="1" value="800">
+                            </div>
+                            <div class="input-group">
+                                <label for="resizeHeight">세로:</label>
+                                <input type="number" id="resizeHeight" min="1" value="600">
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" id="maintainAspect" checked>
+                                비율 유지
+                            </label>
+                        </div>
+
+                        <!-- 자르기 (크롭) -->
+                        <div class="control-section" data-section="crop">
+                            <h3>✂️ 자르기</h3>
+                            <small style="margin-bottom: 12px; display: block;">💡 이미지 위에서 드래그하여 영역을 선택하세요</small>
+                            <div class="control-group">
+                                <label>
+                                    <input type="radio" name="cropMode" value="none" checked> 없음
+                                </label>
+                                <label>
+                                    <input type="radio" name="cropMode" value="rectangle"> 직사각형
+                                </label>
+                                <label>
+                                    <input type="radio" name="cropMode" value="circle"> 원형
+                                </label>
+                            </div>
+                            <div id="cropControls" style="display: none;">
+                                <div class="input-group">
+                                    <label for="cropX">X:</label>
+                                    <input type="number" id="cropX" min="0" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="cropY">Y:</label>
+                                    <input type="number" id="cropY" min="0" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="cropW">너비:</label>
+                                    <input type="number" id="cropW" min="1" value="200">
+                                </div>
+                                <div class="input-group">
+                                    <label for="cropH">높이:</label>
+                                    <input type="number" id="cropH" min="1" value="200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 파일명 변경 -->
+                        <div class="control-section" data-section="rename">
+                            <h3>📝 파일명</h3>
+                            <div class="control-group" style="margin-bottom: 12px;">
+                                <label>
+                                    <input type="radio" name="nameMode" value="single" checked> 개별 이름
+                                </label>
+                                <label>
+                                    <input type="radio" name="nameMode" value="sequence"> 시퀀스 이름
+                                </label>
+                            </div>
+
+                            <div id="singleNameMode">
+                                <div class="input-group">
+                                    <label for="newFileName">새 이름:</label>
+                                    <input type="text" id="newFileName" placeholder="확장자 제외">
+                                </div>
+                            </div>
+
+                            <div id="sequenceNameMode" style="display: none;">
+                                <div class="input-group">
+                                    <label for="sequencePrefix">접두사:</label>
+                                    <input type="text" id="sequencePrefix" placeholder="예: image">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sequenceStart">시작 번호:</label>
+                                    <input type="number" id="sequenceStart" min="0" value="1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sequencePadding">패딩 (자릿수):</label>
+                                    <input type="number" id="sequencePadding" min="1" max="6" value="3">
+                                </div>
+                                <small style="display: block; margin-top: 8px;">예: image_001, image_002, ...</small>
+                            </div>
+
+                            <small id="fileExtension">확장자: -</small>
+                        </div>
+
+                        <!-- 압축 -->
+                        <div class="control-section" data-section="compress">
+                            <h3>🗜️ 압축</h3>
+                            <label class="checkbox">
+                                <input type="checkbox" id="enableCompress">
+                                압축 사용
+                            </label>
+                            <div id="compressOptions" style="display: none;">
+                                <div class="input-group">
+                                    <label for="compressQuality">품질:</label>
+                                    <div class="range-input">
+                                        <input type="range" id="compressQuality" min="10" max="100" value="80">
+                                        <span id="qualityValue">80%</span>
+                                    </div>
+                                </div>
+                                <div id="compressEstimate" class="compress-estimate">
+                                    <span>원본: <strong id="estOriginal">-</strong></span>
+                                    <span>예상: <strong id="estCompressed">계산 중...</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 다운로드 버튼 -->
+                        <div style="display: flex; gap: 10px;">
+                            <button id="downloadBtn" class="btn-primary" style="flex: 1;">⬇️ 현재 이미지</button>
+                            <button id="downloadAllBtn" class="btn-primary" style="flex: 1; background: linear-gradient(135deg, #10b981, #059669);">⬇️ 모두 다운로드</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>💡 Tip: 모든 처리는 브라우저에서 진행되어 서버에 저장되지 않습니다.</p>
+        </footer>
+    </div>
+
+    <!-- TinyPNG 방식 압축을 위한 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/upng-js@2.1.0/UPNG.js"></script>
+    <!-- ZIP 묶음 다운로드용 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <!-- Firebase Analytics -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+        import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUpbXEl5KBY8qVkM4v8LmyA990FcNIq6o",
+            authDomain: "imageresizer-19fa3.firebaseapp.com",
+            projectId: "imageresizer-19fa3",
+            storageBucket: "imageresizer-19fa3.firebasestorage.app",
+            messagingSenderId: "793217198336",
+            appId: "1:793217198336:web:239b4c2c58bad83839ebe5",
+            measurementId: "G-264L0L3T99"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // 다른 스크립트(main.js)에서 이벤트를 기록할 수 있도록 전역 헬퍼 노출
+        window.trackEvent = (eventName, params = {}) => {
+            try {
+                logEvent(analytics, eventName, params);
+            } catch (e) {
+                console.warn('Analytics 이벤트 기록 실패:', e);
+            }
+        };
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
