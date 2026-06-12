@@ -1,0 +1,413 @@
+{
+  "site": {
+    "title": "NEOCODE — 비즈니스를 잇는 코드",
+    "description": "NEOCODE는 Apps, Tools, Games를 기획하고 개발하는 소프트웨어 전문 개발 업체입니다."
+  },
+  "nav": {
+    "serviceLabel": "Service",
+    "items": [
+      {
+        "label": "HOME",
+        "href": "#top"
+      },
+      {
+        "label": "ABOUT",
+        "href": "#why"
+      },
+      {
+        "label": "문의",
+        "href": "#contact"
+      }
+    ],
+    "serviceItems": [
+      {
+        "label": "Apps",
+        "href": "#services"
+      },
+      {
+        "label": "Tools",
+        "href": "#tools"
+      },
+      {
+        "label": "Games",
+        "href": "#games"
+      }
+    ],
+    "ghostCta": {
+      "label": "상담 문의",
+      "href": "#contact"
+    },
+    "primaryCta": {
+      "label": "Service 보기",
+      "href": "#services"
+    }
+  },
+  "hero": {
+    "eyebrow": "비즈니스를 잇는 코드, Neocode",
+    "title": "일상은 더 편리하게,",
+    "highlight": "비즈니스는 더 똑똑하게.",
+    "lead": "NEOCODE는 사람들의 하루를 바꾸는 Apps, 기업의 일을 자동화하는 Tools, 몰입감 있는 Games를 함께 만듭니다. 아이디어를 안정적인 제품으로 완성합니다.",
+    "actions": [
+      {
+        "label": "Service 둘러보기 →",
+        "href": "#services",
+        "style": "primary"
+      },
+      {
+        "label": "Tools 알아보기",
+        "href": "#tools",
+        "style": "ghost"
+      }
+    ],
+    "stats": [
+      {
+        "value": "120+",
+        "label": "누적 프로젝트"
+      },
+      {
+        "value": "99.9%",
+        "label": "서비스 가동률"
+      },
+      {
+        "value": "8년",
+        "label": "제품 개발 경험"
+      }
+    ],
+    "platformTitle": "Neocode Platform",
+    "platformDescription": "Apps, Tools, Games를 하나의 제품 전략으로 설계하고 운영합니다.",
+    "badges": [
+      {
+        "icon": "★",
+        "title": "Apps",
+        "value": "사용자 중심"
+      },
+      {
+        "icon": "⚙",
+        "title": "Tools",
+        "value": "업무 자동화"
+      }
+    ],
+    "trustTitle": "다양한 산업의 파트너와 함께합니다",
+    "trustLogos": [
+      "FINTECH",
+      "COMMERCE",
+      "HEALTHCARE",
+      "LOGISTICS",
+      "EDU",
+      "MANUFACTURE"
+    ]
+  },
+  "sections": {
+    "apps": {
+      "tag": "Service · Apps",
+      "title": "매일 쓰고 싶은 Apps",
+      "description": "복잡한 기술은 안으로 숨기고, 누구나 직관적으로 쓸 수 있는 경험만 남겼습니다.",
+      "cards": [
+        {
+          "icon": "📱",
+          "title": "Image Resizer",
+          "description": "웹 브라우저에서 간편하게 이미지의 용량이나 해상도(가로·세로 크기)를 조절할 수 있는 온라인 이미지 편집 도구입니다. 별도의 프로그램 설치 없이 사진 업로드 후 원하는 크기나 비율을 지정하여 빠르게 내려받을 수 있는 깔끔한 인터페이스를 제공합니다.",
+          "ctaLabel": "자세히 보기",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "web",
+              "label": "Web",
+              "url": "https://neocode.cloud/image-resizer/"
+            }
+          ]
+        },
+        {
+          "icon": "💳",
+          "title": "Fake Gps",
+          "description": "스마트폰의 실제 GPS 좌표 대신 가상의 위치를 설정하여 다른 앱들이 지정된 장소에 있는 것처럼 인식하게 만드는 위치 에뮬레이터 앱입니다. 개발자의 위치 기반 서비스 테스트용이나 개인정보 보호(위치 노출 방지) 목적으로 유용하며, 지도 선택이나 조이스틱 제어 기능 등을 제공합니다.",
+          "ctaLabel": "자세히 보기",
+          "href": "https://neocode.cloud/fake-gps",
+          "platforms": [
+            {
+              "type": "android",
+              "label": "Android",
+              "url": "https://play.google.com/store/apps/details?id=com.neocode.fakegps"
+            }
+          ],
+          "featured": true
+        },
+        {
+          "icon": "🎯",
+          "title": "Safely Remove",
+          "description": "스마트폰 내 개인정보가 담긴 사진, 동영상, 문서 등을 일반적인 삭제보다 훨씬 안전하고 복구 불가능하게 파쇄하는 보안 삭제 앱입니다. 파일을 지우기 전 내부 데이터를 깨지지 않는 무작위 데이터로 덮어쓰는(Overwriting) 과정을 거치므로, 중고폰 판매나 기기 변경 시 데이터 유출을 철저히 방지합니다.",
+          "ctaLabel": "자세히 보기",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "android",
+              "label": "Android",
+              "url": "https://play.google.com/store/apps/details?id=com.neocode.safetydelete&hl=ko"
+            }
+          ]
+        },
+        {
+          "icon": "🌐",
+          "title": "안읽씹",
+          "description": "스마트폰으로 들어오는 다양한 앱의 푸시 알림과 메시지를 자동으로 기록하고 보관해 주는 알림 관리 앱입니다. 상대방이 전송 후 바로 삭제한 메시지나 휘발성 알림의 내용을 놓치지 않고 나중에 다시 확인하고 싶을 때 유용하게 활용할 수 있습니다.",
+          "ctaLabel": "서비스 체험하기",
+          "href": "https://play.google.com/store/apps/details?id=com.neocode.pushcapture&hl=ko",
+          "featured": true,
+          "platforms": [
+            {
+              "type": "android",
+              "label": "Android",
+              "url": "https://play.google.com/store/apps/details?id=com.neocode.pushcapture&hl=ko"
+            }
+          ]
+        },
+        {
+          "icon": "📚",
+          "title": "Slient Camera : Mute",
+          "description": "사진 촬영 시 발생하는 셔터 음을 제거하거나 최소화하여 조용한 환경에서 촬영할 수 있도록 돕는 카메라 앱입니다. 도서관, 독서실, 조용한 카페, 반려동물 촬영 등 촬영 소음이 주변에 방해가 되는 상황에서 에티켓을 지키며 사진을 찍을 수 있도록 지원합니다.",
+          "ctaLabel": "자세히 보기",
+          "href": "https://play.google.com/store/apps/details?id=com.neocode.slientcamera&hl=ko",
+          "platforms": [
+            {
+              "type": "android",
+              "label": "Android",
+              "url": "https://play.google.com/store/apps/details?id=com.neocode.slientcamera&hl=ko"
+            }
+          ]
+        }
+      ]
+    },
+    "tools": {
+      "tag": "Tools · 기업용",
+      "title": "일하는 방식을 바꾸는 B2B Tools",
+      "description": "반복되는 업무는 자동화하고, 데이터는 한눈에. 팀의 생산성을 끌어올리는 솔루션입니다.",
+      "cards": [
+        {
+          "icon": "📊",
+          "title": "NEO Analytics",
+          "description": "흩어진 데이터를 하나의 대시보드로. 매출·사용자·운영 지표를 실시간으로 추적하고 리포트를 자동 생성합니다.",
+          "chips": [
+            "실시간 대시보드",
+            "리포트 자동화",
+            "API 연동"
+          ],
+          "ctaLabel": "도입 문의",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "windows",
+              "label": "Windows",
+              "url": "#contact"
+            },
+            {
+              "type": "web",
+              "label": "Web",
+              "url": "#contact"
+            }
+          ]
+        },
+        {
+          "icon": "🤖",
+          "title": "NEO Flow",
+          "description": "코드 없이 만드는 업무 자동화 워크플로. 승인·알림·데이터 연동을 드래그 한 번으로 구성합니다.",
+          "chips": [
+            "노코드",
+            "워크플로",
+            "200+ 연동"
+          ],
+          "ctaLabel": "도입 문의",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "windows",
+              "label": "Windows",
+              "url": "#contact"
+            },
+            {
+              "type": "web",
+              "label": "Web",
+              "url": "#contact"
+            }
+          ]
+        },
+        {
+          "icon": "🔐",
+          "title": "NEO Secure",
+          "description": "기업용 통합 인증·권한 관리(SSO). 접근 권한을 한 곳에서 통제하고 보안 로그를 추적합니다.",
+          "chips": [
+            "SSO",
+            "권한 관리",
+            "감사 로그"
+          ],
+          "ctaLabel": "도입 문의",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "windows",
+              "label": "Windows",
+              "url": "#contact"
+            },
+            {
+              "type": "web",
+              "label": "Web",
+              "url": "#contact"
+            }
+          ]
+        },
+        {
+          "icon": "☁️",
+          "title": "NEO Cloud",
+          "description": "확장 가능한 인프라 운영 플랫폼. 배포·모니터링·비용 최적화를 하나의 콘솔에서 관리합니다.",
+          "chips": [
+            "오토스케일",
+            "모니터링",
+            "비용 최적화"
+          ],
+          "ctaLabel": "도입 문의",
+          "href": "#contact",
+          "platforms": [
+            {
+              "type": "windows",
+              "label": "Windows",
+              "url": "#contact"
+            },
+            {
+              "type": "web",
+              "label": "Web",
+              "url": "#contact"
+            }
+          ]
+        }
+      ]
+    },
+    "games": {
+      "tag": "Service · Games",
+      "title": "기획부터 출시까지 연결되는 Games",
+      "description": "모바일 게임, 캐주얼 게임, 운영형 게임 서비스를 빠르게 검증하고 안정적으로 출시합니다.",
+      "cards": [],
+      "emptyState": {
+        "label": "COMING SOON",
+        "title": "Games ?? ????",
+        "description": "?? ??? Games? ????. ?? ??? ???? ? ??? ?????."
+      }
+    }
+  },
+  "about": {
+    "tag": "Why NEOCODE",
+    "title": "왜 NEOCODE와 함께해야 할까요",
+    "description": "B2C에서 쌓은 사용자 감각과 B2B에서 검증된 안정성, 두 가지를 모두 갖췄습니다.",
+    "items": [
+      {
+        "number": "01",
+        "title": "제품 중심 사고",
+        "description": "기술이 아닌 사용자의 문제에서 출발해 진짜 쓰이는 제품을 만듭니다."
+      },
+      {
+        "number": "02",
+        "title": "빠른 실행력",
+        "description": "아이디어를 2주 단위 스프린트로 검증하며 빠르게 시장에 내놓습니다."
+      },
+      {
+        "number": "03",
+        "title": "탄탄한 기술력",
+        "description": "대규모 트래픽을 견디는 안정적인 아키텍처와 보안을 기본으로 합니다."
+      },
+      {
+        "number": "04",
+        "title": "끝까지 함께",
+        "description": "출시가 끝이 아닙니다. 데이터를 보며 함께 성장시켜 나갑니다."
+      }
+    ]
+  },
+  "contact": {
+    "email": "admin@neocode.co.kr",
+    "title": "당신의 다음 제품, NEOCODE와 시작하세요",
+    "description": "Apps, Tools, Games 제작까지. 무엇이든 편하게 문의 주세요. 영업일 기준 1일 내에 답변드립니다.",
+    "buttonLabel": "문의하기",
+    "modalTitle": "문의하기",
+    "modalIntro": "입력한 내용은 메일 앱을 통해 admin@neocode.co.kr으로 전송됩니다.",
+    "modalNote": "브라우저 보안상 사이트에서 메일을 직접 자동 발송하지 않고, 사용자의 기본 메일 앱을 엽니다."
+  },
+  "footer": {
+    "brandDescription": "Neocode는 고도의 소프트웨어 기술력을 바탕으로 사용자의 디지털 일상을 안전하고 편리하게 혁신하는 모바일 앱 및 게임 개발 전문 기업입니다.\n네오코드 사업자번호 : 244-29-01059 D-U-N-S : 963437563 통신판매업신고번호 : 제2025-서울구로-0315호 대표: 박은성 \n서울시 구로구 경인로20나길 36 702호 / 고객센터: 010-8674-1663",
+    "columns": [
+      {
+        "title": "Service",
+        "links": [
+          {
+            "label": "Apps",
+            "href": "#services"
+          },
+          {
+            "label": "Tools",
+            "href": "#tools"
+          },
+          {
+            "label": "Games",
+            "href": "#games"
+          }
+        ]
+      },
+      {
+        "title": "대표 카테고리",
+        "links": [
+          {
+            "label": "Fake Gps",
+            "href": "#services"
+          },
+          {
+            "label": "NEO Flow",
+            "href": "#tools"
+          },
+          {
+            "label": "Mobile Game",
+            "href": "#games"
+          },
+          {
+            "label": "Live Ops",
+            "href": "#games"
+          }
+        ]
+      },
+      {
+        "title": "회사",
+        "links": [
+          {
+            "label": "소개",
+            "href": "#why"
+          },
+          {
+            "label": "문의",
+            "href": "#contact"
+          },
+          {
+            "label": "채용",
+            "href": "#top"
+          },
+          {
+            "label": "블로그",
+            "href": "#top"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 NEOCODE Inc. All rights reserved.",
+    "social": [
+      {
+        "label": "GitHub",
+        "text": "GH",
+        "href": "#"
+      },
+      {
+        "label": "LinkedIn",
+        "text": "in",
+        "href": "#"
+      },
+      {
+        "label": "Mail",
+        "text": "@",
+        "href": "mailto:neocode.helpdesk@gmail.com"
+      }
+    ]
+  }
+}
