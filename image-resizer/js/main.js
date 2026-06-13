@@ -110,6 +110,12 @@ class ImageModifier {
             });
         });
 
+        // 파일명 변경 사용 여부
+        document.getElementById('enableRename').addEventListener('change', (e) => {
+            document.getElementById('renameOptions').style.display =
+                e.target.checked ? 'block' : 'none';
+        });
+
         // 파일명 모드
         document.querySelectorAll('input[name="nameMode"]').forEach(radio => {
             radio.addEventListener('change', () => {
@@ -573,8 +579,14 @@ class ImageModifier {
     }
 
     getFileName(index) {
-        const nameMode = document.querySelector('input[name="nameMode"]:checked').value;
         const img = this.images[index];
+
+        // 파일명 변경 미사용 시 원본 이름 유지
+        if (!document.getElementById('enableRename').checked) {
+            return img.name;
+        }
+
+        const nameMode = document.querySelector('input[name="nameMode"]:checked').value;
 
         if (nameMode === 'single') {
             const customName = document.getElementById('newFileName').value;
@@ -652,7 +664,7 @@ class ImageModifier {
 
     async downloadSingle() {
         if (this.currentIndex < 0) {
-            alert('먼저 이미지를 업로드하세요.');
+            alert(this.tr('alert_upload_first'));
             return;
         }
 
@@ -685,7 +697,7 @@ class ImageModifier {
 
     async downloadAll() {
         if (this.images.length === 0) {
-            alert('먼저 이미지를 업로드하세요.');
+            alert(this.tr('alert_upload_first'));
             return;
         }
 
@@ -718,7 +730,7 @@ class ImageModifier {
         const usedNames = {};
 
         for (let index = 0; index < this.images.length; index++) {
-            btn.textContent = `압축 중... (${index + 1}/${this.images.length})`;
+            btn.textContent = `${this.tr('compressing')} (${index + 1}/${this.images.length})`;
 
             const img = this.images[index];
             const finalCanvas = this.buildFinalCanvas(img);
@@ -738,7 +750,7 @@ class ImageModifier {
             zip.file(filename, blob);
         }
 
-        btn.textContent = 'ZIP 생성 중...';
+        btn.textContent = this.tr('zip_generating');
         const zipBlob = await zip.generateAsync({ type: 'blob' });
 
         const stamp = new Date().toISOString().slice(0, 10);
@@ -783,7 +795,7 @@ class ImageModifier {
         const estCompressed = document.getElementById('estCompressed');
 
         estOriginal.textContent = this.formatFileSize(img.file.size);
-        estCompressed.textContent = '계산 중...';
+        estCompressed.textContent = this.tr('calculating');
         estCompressed.className = '';
 
         const finalCanvas = this.buildFinalCanvas(img);
@@ -793,6 +805,11 @@ class ImageModifier {
         const ratio = ((1 - blob.size / img.file.size) * 100).toFixed(1);
         estCompressed.textContent = `${this.formatFileSize(blob.size)} (${ratio > 0 ? '-' : '+'}${Math.abs(ratio)}%)`;
         estCompressed.className = blob.size < img.file.size ? 'reduced' : 'increased';
+    }
+
+    // 번역 헬퍼 (i18n.js의 전역 t 사용)
+    tr(key) {
+        return typeof window.t === 'function' ? window.t(key) : key;
     }
 
     // Firebase Analytics 이벤트 기록 (전역 헬퍼가 있을 때만)
