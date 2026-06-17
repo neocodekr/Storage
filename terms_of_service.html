@@ -1,151 +1,841 @@
-네오코드 서비스 이용약관
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service / 서비스 이용약관</title>
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #222;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.language-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 6px;
+}
+.language-switch button {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  font: inherit;
+}
+.language-switch button.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+.lang-content {
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 76px 24px 24px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.lang-content.active { display: block; }
+.header {
+  padding-top: 4px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 24px;
+}
+h1 {
+  margin: 0 0 14px;
+  font-size: 32px;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+h2 {
+  margin: 42px 0 12px;
+  padding-top: 4px;
+  font-size: 22px;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+p { margin: 10px 0; }
+ul {
+  margin: 10px 0 18px 0;
+  padding-left: 22px;
+}
+li { margin: 6px 0; }
+.meta {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 14px;
+  background: #f8f8f8;
+  border-left: 4px solid #555;
+  padding: 14px;
+  margin: 16px 0 0;
+}
+.meta dt {
+  font-weight: 700;
+  color: #333;
+}
+.meta dd { margin: 0; }
+.notice {
+  background: #f8f8f8;
+  padding: 14px;
+  border-left: 4px solid #555;
+  margin: 16px 0;
+}
+.toc {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 20px 0 34px;
+}
+.toc-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 22px;
+  columns: 2;
+  column-gap: 32px;
+}
+.toc li {
+  break-inside: avoid;
+  margin: 4px 0;
+}
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  vertical-align: top;
+  text-align: left;
+}
+th {
+  background: #f5f5f5;
+  font-weight: 700;
+}
+.footer {
+  margin-top: 42px;
+  padding: 22px 0 12px;
+  border-top: 1px solid #e8e8e8;
+  color: #555;
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .language-switch {
+    top: 12px;
+    right: 12px;
+  }
+  .language-switch button {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+  .lang-content {
+    padding: 68px 18px 18px;
+    line-height: 1.75;
+  }
+  h1 { font-size: 26px; }
+  h2 {
+    font-size: 20px;
+    margin-top: 34px;
+  }
+  .meta {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .toc ol { columns: 1; }
+  table { min-width: 560px; }
+}
+</style>
+</head>
+<body>
 
-시행일: 2026년 06월 06일
-회사명: 네오코드
-문의: neocode.helpdesk@gmail.com
+<div class="language-switch">
+  <button id="btnKR" class="active" type="button" onclick="changeLanguage('kr')">한국어</button>
+  <button id="btnEN" type="button" onclick="changeLanguage('en')">English</button>
+</div>
 
-제1조 목적
+<div id="kr" class="lang-content active">
 
-본 약관은 네오코드 이하 “회사”가 제공하는 모바일 애플리케이션 및 이에 부수되는 서비스 이하 “서비스”의 이용과 관련하여 회사와 이용자 간의 권리, 의무, 책임사항 및 서비스 이용 조건을 정하는 것을 목적으로 합니다.
+  <header class="header">
+    <h1>네오코드 서비스 이용약관</h1>
+    <dl class="meta">
+      <dt>시행일</dt>
+      <dd>2026년 06월 06일</dd>
+      <dt>회사명</dt>
+      <dd>네오코드</dd>
+      <dt>문의</dt>
+      <dd><a href="mailto:neocode.helpdesk@gmail.com">neocode.helpdesk@gmail.com</a></dd>
+    </dl>
+  </header>
 
-제2조 정의
+  <nav class="toc" aria-label="목차">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#kr-article-1">목적</a></li>
+      <li><a href="#kr-article-2">정의</a></li>
+      <li><a href="#kr-article-3">약관의 게시 및 효력</a></li>
+      <li><a href="#kr-article-4">서비스의 내용</a></li>
+      <li><a href="#kr-article-5">회원가입 및 계정</a></li>
+      <li><a href="#kr-article-6">로그인 정보 및 계정 관리</a></li>
+      <li><a href="#kr-article-7">회원 탈퇴 및 이용계약 해지</a></li>
+      <li><a href="#kr-article-8">서비스 이용 제한</a></li>
+      <li><a href="#kr-article-9">이용자의 의무</a></li>
+      <li><a href="#kr-article-10">회사의 의무</a></li>
+      <li><a href="#kr-article-11">개인정보 및 데이터 처리</a></li>
+      <li><a href="#kr-article-12">앱 접근권한</a></li>
+      <li><a href="#kr-article-13">게시물 및 이용자 콘텐츠</a></li>
+      <li><a href="#kr-article-14">지식재산권</a></li>
+      <li><a href="#kr-article-15">알림 및 마케팅 정보</a></li>
+      <li><a href="#kr-article-16">서비스 변경, 중단 및 종료</a></li>
+      <li><a href="#kr-article-17">책임 제한</a></li>
+      <li><a href="#kr-article-18">손해배상</a></li>
+      <li><a href="#kr-article-19">준거법 및 분쟁 해결</a></li>
+      <li><a href="#kr-article-20">고객센터</a></li>
+    </ol>
+  </nav>
 
-본 약관에서 사용하는 용어의 뜻은 다음과 같습니다.
+  <section id="kr-article-1">
+    <h2>제1조 목적</h2>
+    <p>본 약관은 네오코드 이하 “회사”가 제공하는 모바일 애플리케이션 및 이에 부수되는 서비스 이하 “서비스”의 이용과 관련하여 회사와 이용자 간의 권리, 의무, 책임사항 및 서비스 이용 조건을 정하는 것을 목적으로 합니다.</p>
+  </section>
 
-“서비스”란 회사가 모바일 애플리케이션을 통해 제공하는 기능, 콘텐츠, 정보, 계정 관리 및 기타 관련 서비스를 의미합니다.
-“이용자”란 본 약관에 따라 서비스를 이용하는 회원 및 비회원을 의미합니다.
-“회원”이란 서비스에 가입하여 계정을 생성하고 서비스를 이용하는 자를 의미합니다.
-“계정”이란 회원 식별과 서비스 이용을 위해 생성되는 로그인 정보를 의미합니다.
-“데이터”란 회원이 서비스 이용 과정에서 입력하거나 서비스 이용 과정에서 생성되는 정보, 접속 기록, 이용 기록, 기기 정보 등을 의미합니다.
-제3조 약관의 게시 및 효력
-회사는 본 약관을 이용자가 쉽게 확인할 수 있도록 앱 내 화면, 웹사이트 또는 회원가입 화면에 게시합니다.
-이용자가 본 약관에 동의하고 회원가입 또는 서비스 이용을 시작한 경우, 이용자는 본 약관에 동의한 것으로 봅니다.
-회사는 관련 법령을 위반하지 않는 범위에서 본 약관을 변경할 수 있습니다.
-회사가 약관을 변경하는 경우 변경 내용, 적용일자 및 변경 사유를 적용일 최소 7일 전부터 서비스 내 공지사항 또는 알림을 통해 공지합니다. 다만 이용자에게 불리하거나 중요한 변경의 경우 최소 30일 전부터 공지합니다.
-이용자가 변경 약관에 동의하지 않는 경우 서비스 이용을 중단하고 회원 탈퇴를 요청할 수 있습니다. 변경 약관의 적용일 이후에도 서비스를 계속 이용하는 경우 변경 약관에 동의한 것으로 봅니다.
-제4조 서비스의 내용
+  <section id="kr-article-2">
+    <h2>제2조 정의</h2>
+    <p>본 약관에서 사용하는 용어의 뜻은 다음과 같습니다.</p>
+    <ul>
+      <li>“서비스”란 회사가 모바일 애플리케이션을 통해 제공하는 기능, 콘텐츠, 정보, 계정 관리 및 기타 관련 서비스를 의미합니다.</li>
+      <li>“이용자”란 본 약관에 따라 서비스를 이용하는 회원 및 비회원을 의미합니다.</li>
+      <li>“회원”이란 서비스에 가입하여 계정을 생성하고 서비스를 이용하는 자를 의미합니다.</li>
+      <li>“계정”이란 회원 식별과 서비스 이용을 위해 생성되는 로그인 정보를 의미합니다.</li>
+      <li>“데이터”란 회원이 서비스 이용 과정에서 입력하거나 서비스 이용 과정에서 생성되는 정보, 접속 기록, 이용 기록, 기기 정보 등을 의미합니다.</li>
+    </ul>
+  </section>
 
-회사는 이용자에게 다음과 같은 서비스를 제공합니다.
+  <section id="kr-article-3">
+    <h2>제3조 약관의 게시 및 효력</h2>
+    <p>회사는 본 약관을 이용자가 쉽게 확인할 수 있도록 앱 내 화면, 웹사이트 또는 회원가입 화면에 게시합니다.</p>
+    <p>이용자가 본 약관에 동의하고 회원가입 또는 서비스 이용을 시작한 경우, 이용자는 본 약관에 동의한 것으로 봅니다.</p>
+    <p>회사는 관련 법령을 위반하지 않는 범위에서 본 약관을 변경할 수 있습니다.</p>
+    <p>회사가 약관을 변경하는 경우 변경 내용, 적용일자 및 변경 사유를 적용일 최소 7일 전부터 서비스 내 공지사항 또는 알림을 통해 공지합니다. 다만 이용자에게 불리하거나 중요한 변경의 경우 최소 30일 전부터 공지합니다.</p>
+    <p>이용자가 변경 약관에 동의하지 않는 경우 서비스 이용을 중단하고 회원 탈퇴를 요청할 수 있습니다. 변경 약관의 적용일 이후에도 서비스를 계속 이용하는 경우 변경 약관에 동의한 것으로 봅니다.</p>
+  </section>
 
-회원가입, 로그인 및 계정 관리 기능
-앱 내 기본 기능 및 콘텐츠 제공
-이용자의 서비스 이용 기록 저장 및 관리
-서비스 개선, 오류 확인, 보안 유지 및 고객 문의 대응
-회사가 추가로 개발하거나 다른 회사와의 제휴를 통해 제공하는 서비스
+  <section id="kr-article-4">
+    <h2>제4조 서비스의 내용</h2>
+    <p>회사는 이용자에게 다음과 같은 서비스를 제공합니다.</p>
+    <ul>
+      <li>회원가입, 로그인 및 계정 관리 기능</li>
+      <li>앱 내 기본 기능 및 콘텐츠 제공</li>
+      <li>이용자의 서비스 이용 기록 저장 및 관리</li>
+      <li>서비스 개선, 오류 확인, 보안 유지 및 고객 문의 대응</li>
+      <li>회사가 추가로 개발하거나 다른 회사와의 제휴를 통해 제공하는 서비스</li>
+    </ul>
+    <p>회사는 서비스의 품질 개선, 운영상 필요, 기술상 필요에 따라 서비스의 전부 또는 일부를 변경할 수 있습니다.</p>
+  </section>
 
-회사는 서비스의 품질 개선, 운영상 필요, 기술상 필요에 따라 서비스의 전부 또는 일부를 변경할 수 있습니다.
+  <section id="kr-article-5">
+    <h2>제5조 회원가입 및 계정</h2>
+    <p>이용자는 회사가 정한 절차에 따라 회원가입을 신청하고, 회사가 이를 승낙함으로써 회원이 됩니다.</p>
+    <p>회원가입 시 이용자는 정확한 정보를 제공해야 하며, 허위 정보 또는 타인의 정보를 사용해서는 안 됩니다.</p>
+    <p>회사는 다음 각 호의 경우 회원가입을 거절하거나 사후에 이용계약을 해지할 수 있습니다.</p>
+    <ul>
+      <li>타인의 명의 또는 정보를 사용한 경우</li>
+      <li>허위 정보를 입력한 경우</li>
+      <li>이전에 약관 위반 등으로 이용 제한을 받은 적이 있는 경우</li>
+      <li>서비스 운영 또는 보안상 문제가 있다고 판단되는 경우</li>
+    </ul>
+    <p>회사는 만 14세 미만 아동의 회원가입을 원칙적으로 허용하지 않습니다. 단, 회사가 만 14세 미만 아동의 가입을 허용하는 경우 관련 법령에 따라 법정대리인의 동의를 받습니다.</p>
+  </section>
 
-제5조 회원가입 및 계정
-이용자는 회사가 정한 절차에 따라 회원가입을 신청하고, 회사가 이를 승낙함으로써 회원이 됩니다.
-회원가입 시 이용자는 정확한 정보를 제공해야 하며, 허위 정보 또는 타인의 정보를 사용해서는 안 됩니다.
-회사는 다음 각 호의 경우 회원가입을 거절하거나 사후에 이용계약을 해지할 수 있습니다.
-타인의 명의 또는 정보를 사용한 경우
-허위 정보를 입력한 경우
-이전에 약관 위반 등으로 이용 제한을 받은 적이 있는 경우
-서비스 운영 또는 보안상 문제가 있다고 판단되는 경우
-회사는 만 14세 미만 아동의 회원가입을 원칙적으로 허용하지 않습니다. 단, 회사가 만 14세 미만 아동의 가입을 허용하는 경우 관련 법령에 따라 법정대리인의 동의를 받습니다.
-제6조 로그인 정보 및 계정 관리
-회원은 본인의 계정과 비밀번호, 소셜 로그인 정보 등 로그인 정보를 직접 관리해야 합니다.
-회원의 관리 소홀, 제3자 사용 허락, 비밀번호 유출 등으로 발생한 손해에 대해 회사는 회사의 고의 또는 중대한 과실이 없는 한 책임을 부담하지 않습니다.
-회원은 계정이 도용되었거나 제3자가 무단으로 사용하고 있음을 알게 된 경우 즉시 회사에 알려야 합니다.
-회사는 계정 도용, 보안 사고, 비정상적인 로그인 시도 등이 의심되는 경우 회원 보호를 위해 계정 이용을 일시적으로 제한할 수 있습니다.
-제7조 회원 탈퇴 및 이용계약 해지
-회원은 언제든지 앱 내 탈퇴 기능 또는 고객센터를 통해 회원 탈퇴를 요청할 수 있습니다.
-회사는 회원의 탈퇴 요청을 접수한 경우 관련 법령 및 개인정보 처리방침에 따라 필요한 절차를 진행합니다.
-회원 탈퇴 시 회원의 계정 정보 및 서비스 이용 데이터는 개인정보 처리방침에 따라 삭제 또는 분리 보관됩니다.
-단, 관련 법령에 따라 보관해야 하는 정보, 부정 이용 방지, 분쟁 해결, 민원 처리 등을 위해 필요한 정보는 정해진 기간 동안 보관될 수 있습니다.
-제8조 서비스 이용 제한
+  <section id="kr-article-6">
+    <h2>제6조 로그인 정보 및 계정 관리</h2>
+    <p>회원은 본인의 계정과 비밀번호, 소셜 로그인 정보 등 로그인 정보를 직접 관리해야 합니다.</p>
+    <p>회원의 관리 소홀, 제3자 사용 허락, 비밀번호 유출 등으로 발생한 손해에 대해 회사는 회사의 고의 또는 중대한 과실이 없는 한 책임을 부담하지 않습니다.</p>
+    <p>회원은 계정이 도용되었거나 제3자가 무단으로 사용하고 있음을 알게 된 경우 즉시 회사에 알려야 합니다.</p>
+    <p>회사는 계정 도용, 보안 사고, 비정상적인 로그인 시도 등이 의심되는 경우 회원 보호를 위해 계정 이용을 일시적으로 제한할 수 있습니다.</p>
+  </section>
 
-회사는 이용자가 다음 각 호에 해당하는 행위를 하는 경우 사전 통지 후 서비스 이용을 제한하거나 이용계약을 해지할 수 있습니다. 다만 긴급한 보안상 필요가 있거나 법령 위반이 명백한 경우 사전 통지 없이 조치할 수 있습니다.
+  <section id="kr-article-7">
+    <h2>제7조 회원 탈퇴 및 이용계약 해지</h2>
+    <p>회원은 언제든지 앱 내 탈퇴 기능 또는 고객센터를 통해 회원 탈퇴를 요청할 수 있습니다.</p>
+    <p>회사는 회원의 탈퇴 요청을 접수한 경우 관련 법령 및 개인정보 처리방침에 따라 필요한 절차를 진행합니다.</p>
+    <p>회원 탈퇴 시 회원의 계정 정보 및 서비스 이용 데이터는 개인정보 처리방침에 따라 삭제 또는 분리 보관됩니다.</p>
+    <p>단, 관련 법령에 따라 보관해야 하는 정보, 부정 이용 방지, 분쟁 해결, 민원 처리 등을 위해 필요한 정보는 정해진 기간 동안 보관될 수 있습니다.</p>
+  </section>
 
-타인의 계정 또는 개인정보를 무단으로 사용하는 행위
-서비스의 정상적인 운영을 방해하는 행위
-해킹, 악성코드 배포, 비정상적인 자동화 프로그램 사용 등 보안에 위협이 되는 행위
-회사 또는 제3자의 지식재산권, 명예, 개인정보, 기타 권리를 침해하는 행위
-허위 정보 입력, 부정한 방법의 서비스 이용, 법령 위반 행위
-기타 회사가 합리적으로 서비스 이용을 제한할 필요가 있다고 판단하는 행위
-제9조 이용자의 의무
+  <section id="kr-article-8">
+    <h2>제8조 서비스 이용 제한</h2>
+    <p>회사는 이용자가 다음 각 호에 해당하는 행위를 하는 경우 사전 통지 후 서비스 이용을 제한하거나 이용계약을 해지할 수 있습니다. 다만 긴급한 보안상 필요가 있거나 법령 위반이 명백한 경우 사전 통지 없이 조치할 수 있습니다.</p>
+    <ul>
+      <li>타인의 계정 또는 개인정보를 무단으로 사용하는 행위</li>
+      <li>서비스의 정상적인 운영을 방해하는 행위</li>
+      <li>해킹, 악성코드 배포, 비정상적인 자동화 프로그램 사용 등 보안에 위협이 되는 행위</li>
+      <li>회사 또는 제3자의 지식재산권, 명예, 개인정보, 기타 권리를 침해하는 행위</li>
+      <li>허위 정보 입력, 부정한 방법의 서비스 이용, 법령 위반 행위</li>
+      <li>기타 회사가 합리적으로 서비스 이용을 제한할 필요가 있다고 판단하는 행위</li>
+    </ul>
+  </section>
 
-이용자는 서비스를 이용할 때 다음 사항을 준수해야 합니다.
+  <section id="kr-article-9">
+    <h2>제9조 이용자의 의무</h2>
+    <p>이용자는 서비스를 이용할 때 다음 사항을 준수해야 합니다.</p>
+    <ul>
+      <li>관련 법령, 본 약관, 서비스 이용 안내 및 회사의 공지사항을 준수해야 합니다.</li>
+      <li>타인의 권리나 정당한 이익을 침해해서는 안 됩니다.</li>
+      <li>서비스의 안정적 운영을 방해하거나 부정한 목적으로 서비스를 이용해서는 안 됩니다.</li>
+      <li>회원가입 및 서비스 이용 과정에서 제공한 정보가 변경된 경우 최신 정보로 수정해야 합니다.</li>
+      <li>회사의 사전 동의 없이 서비스를 영리 목적으로 복제, 판매, 양도, 대여, 재판매하거나 상업적으로 이용해서는 안 됩니다.</li>
+    </ul>
+  </section>
 
-관련 법령, 본 약관, 서비스 이용 안내 및 회사의 공지사항을 준수해야 합니다.
-타인의 권리나 정당한 이익을 침해해서는 안 됩니다.
-서비스의 안정적 운영을 방해하거나 부정한 목적으로 서비스를 이용해서는 안 됩니다.
-회원가입 및 서비스 이용 과정에서 제공한 정보가 변경된 경우 최신 정보로 수정해야 합니다.
-회사의 사전 동의 없이 서비스를 영리 목적으로 복제, 판매, 양도, 대여, 재판매하거나 상업적으로 이용해서는 안 됩니다.
-제10조 회사의 의무
-회사는 관련 법령과 본 약관을 준수하며 안정적인 서비스 제공을 위해 노력합니다.
-회사는 이용자의 개인정보를 관련 법령 및 개인정보 처리방침에 따라 보호합니다.
-회사는 서비스 장애가 발생한 경우 합리적인 범위에서 이를 신속히 복구하기 위해 노력합니다.
-회사는 이용자로부터 제기되는 의견이나 불만이 정당하다고 인정되는 경우 이를 처리하기 위해 노력합니다.
-제11조 개인정보 및 데이터 처리
-회사는 서비스 제공을 위해 필요한 범위에서 이용자의 개인정보 및 서비스 이용 데이터를 수집·이용할 수 있습니다.
-회사가 수집할 수 있는 기본 정보는 다음과 같습니다.
-회원가입 및 로그인 정보: 이메일 주소, 비밀번호, 닉네임, 소셜 로그인 식별값
-서비스 이용 정보: 접속 일시, 앱 이용 기록, 기능 사용 기록, 문의 내용
-기기 및 기술 정보: 기기 모델, 운영체제, 앱 버전, IP 주소, 오류 및 충돌 기록
-알림 정보: 푸시 알림 수신 여부, 푸시 토큰
-회사는 수집한 정보를 다음 목적을 위해 이용합니다.
-회원 식별 및 로그인 제공
-서비스 제공, 유지, 개선 및 맞춤형 기능 제공
-오류 확인, 보안 관리, 부정 이용 방지
-고객 문의 대응 및 공지사항 전달
-관련 법령 준수 및 분쟁 대응
-회사는 이용자의 개인정보를 개인정보 처리방침에서 정한 목적과 범위 내에서 처리하며, 법령상 허용되는 경우 또는 이용자의 별도 동의가 있는 경우를 제외하고 제3자에게 제공하지 않습니다.
-회사가 서비스 운영을 위해 외부 업체에 개인정보 처리를 위탁하는 경우, 위탁받는 자와 위탁 업무 내용을 개인정보 처리방침에 공개합니다.
-개인정보의 수집 항목, 이용 목적, 보유 기간, 파기 절차, 제3자 제공, 처리 위탁, 이용자의 권리 행사 방법 등 자세한 사항은 별도 개인정보 처리방침에 따릅니다.
-제12조 앱 접근권한
-회사는 서비스 제공에 필요한 경우 이용자의 기기 접근권한을 요청할 수 있습니다.
-선택 접근권한은 해당 기능 이용 시에만 요청되며, 이용자는 이를 허용하지 않아도 기본 서비스 이용이 가능합니다. 다만 해당 권한이 필요한 일부 기능은 제한될 수 있습니다.
-접근권한 예시는 다음과 같습니다. 실제 사용하는 권한만 남기고 사용하지 않는 권한은 삭제하시기 바랍니다.
-알림: 서비스 공지, 계정 보안 알림, 이용 안내 발송
-사진 또는 파일: 이용자가 직접 선택한 이미지 또는 파일 업로드
-카메라: 프로필 이미지 촬영 또는 이미지 업로드
-위치: 위치 기반 기능 제공
-회사는 앱 접근권한을 서비스 제공 목적 외로 사용하지 않습니다.
-제13조 게시물 및 이용자 콘텐츠
+  <section id="kr-article-10">
+    <h2>제10조 회사의 의무</h2>
+    <p>회사는 관련 법령과 본 약관을 준수하며 안정적인 서비스 제공을 위해 노력합니다.</p>
+    <p>회사는 이용자의 개인정보를 관련 법령 및 개인정보 처리방침에 따라 보호합니다.</p>
+    <p>회사는 서비스 장애가 발생한 경우 합리적인 범위에서 이를 신속히 복구하기 위해 노력합니다.</p>
+    <p>회사는 이용자로부터 제기되는 의견이나 불만이 정당하다고 인정되는 경우 이를 처리하기 위해 노력합니다.</p>
+  </section>
 
-이 조항은 이용자가 앱 안에 글, 사진, 리뷰, 댓글, 파일 등을 업로드하는 기능이 있는 경우 사용합니다. 해당 기능이 없다면 삭제해도 됩니다.
+  <section id="kr-article-11">
+    <h2>제11조 개인정보 및 데이터 처리</h2>
+    <p>회사는 서비스 제공을 위해 필요한 범위에서 이용자의 개인정보 및 서비스 이용 데이터를 수집·이용할 수 있습니다.</p>
+    <p>회사가 수집할 수 있는 기본 정보는 다음과 같습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>항목</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>회원가입 및 로그인 정보</td>
+            <td>이메일 주소, 비밀번호, 닉네임, 소셜 로그인 식별값</td>
+          </tr>
+          <tr>
+            <td>서비스 이용 정보</td>
+            <td>접속 일시, 앱 이용 기록, 기능 사용 기록, 문의 내용</td>
+          </tr>
+          <tr>
+            <td>기기 및 기술 정보</td>
+            <td>기기 모델, 운영체제, 앱 버전, IP 주소, 오류 및 충돌 기록</td>
+          </tr>
+          <tr>
+            <td>알림 정보</td>
+            <td>푸시 알림 수신 여부, 푸시 토큰</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>회사는 수집한 정보를 다음 목적을 위해 이용합니다.</p>
+    <ul>
+      <li>회원 식별 및 로그인 제공</li>
+      <li>서비스 제공, 유지, 개선 및 맞춤형 기능 제공</li>
+      <li>오류 확인, 보안 관리, 부정 이용 방지</li>
+      <li>고객 문의 대응 및 공지사항 전달</li>
+      <li>관련 법령 준수 및 분쟁 대응</li>
+    </ul>
+    <p>회사는 이용자의 개인정보를 개인정보 처리방침에서 정한 목적과 범위 내에서 처리하며, 법령상 허용되는 경우 또는 이용자의 별도 동의가 있는 경우를 제외하고 제3자에게 제공하지 않습니다.</p>
+    <p>회사가 서비스 운영을 위해 외부 업체에 개인정보 처리를 위탁하는 경우, 위탁받는 자와 위탁 업무 내용을 개인정보 처리방침에 공개합니다.</p>
+    <p>개인정보의 수집 항목, 이용 목적, 보유 기간, 파기 절차, 제3자 제공, 처리 위탁, 이용자의 권리 행사 방법 등 자세한 사항은 별도 개인정보 처리방침에 따릅니다.</p>
+  </section>
 
-이용자가 서비스에 게시하거나 업로드한 콘텐츠의 권리와 책임은 해당 이용자에게 있습니다.
-이용자는 타인의 저작권, 초상권, 개인정보, 명예 등 권리를 침해하는 콘텐츠를 게시해서는 안 됩니다.
-회사는 이용자 콘텐츠가 법령 또는 본 약관을 위반한다고 판단되는 경우 사전 통지 후 삭제, 비공개, 이용 제한 등의 조치를 할 수 있습니다. 다만 긴급한 권리 침해 또는 법령 위반이 명백한 경우 사전 통지 없이 조치할 수 있습니다.
-회사는 서비스 운영, 노출, 홍보 및 개선을 위해 필요한 범위에서 이용자 콘텐츠를 사용할 수 있으며, 이 경우 관련 법령을 준수합니다.
-제14조 지식재산권
-서비스 및 서비스에 포함된 디자인, 화면, 로고, 문구, 소프트웨어, 데이터베이스, 콘텐츠 등에 관한 지식재산권은 회사 또는 정당한 권리자에게 귀속됩니다.
-이용자는 회사의 사전 서면 동의 없이 서비스 또는 서비스 내 콘텐츠를 복제, 배포, 전송, 전시, 판매, 수정, 2차적 저작물 작성 등의 방식으로 이용할 수 없습니다.
-이용자가 서비스 이용 과정에서 회사에 제공한 의견, 제안, 개선 아이디어 등은 회사가 서비스 개선을 위해 사용할 수 있습니다.
-제15조 알림 및 마케팅 정보
-회사는 서비스 운영에 필요한 공지, 보안 안내, 계정 관련 알림, 약관 또는 개인정보 처리방침 변경 안내 등을 이용자에게 발송할 수 있습니다.
-회사는 이용자의 별도 동의를 받은 경우 이벤트, 혜택, 광고성 정보 등 마케팅 정보를 발송할 수 있습니다.
-이용자는 언제든지 마케팅 정보 수신을 철회할 수 있으며, 철회하더라도 서비스 이용에는 영향을 주지 않습니다.
-단, 서비스 이용에 필수적인 공지 또는 거래·계정·보안 관련 안내는 수신 동의 여부와 관계없이 발송될 수 있습니다.
-제16조 서비스 변경, 중단 및 종료
-회사는 운영상, 기술상 필요에 따라 서비스의 전부 또는 일부를 변경하거나 중단할 수 있습니다.
-회사는 서비스 변경 또는 중단이 이용자에게 중대한 영향을 미치는 경우 사전에 공지합니다. 다만 장애, 보안 사고, 천재지변, 긴급 점검 등 부득이한 사유가 있는 경우 사후에 공지할 수 있습니다.
-회사가 서비스를 종료하는 경우 종료일 최소 30일 전까지 서비스 내 공지사항 또는 알림을 통해 안내합니다.
-제17조 책임 제한
-회사는 천재지변, 전쟁, 테러, 기간통신사업자의 장애, 앱스토어 또는 플랫폼 장애, 클라우드 서비스 장애, 기타 회사의 합리적 통제 범위를 벗어난 사유로 서비스를 제공할 수 없는 경우 책임을 부담하지 않습니다.
-회사는 이용자의 귀책사유로 발생한 서비스 이용 장애 또는 손해에 대해 책임을 부담하지 않습니다.
-회사는 이용자 간 또는 이용자와 제3자 간에 서비스를 매개로 발생한 분쟁에 개입할 의무가 없으며, 회사의 고의 또는 중대한 과실이 없는 한 이에 대한 손해를 배상할 책임을 부담하지 않습니다.
-본 조항은 회사의 고의 또는 중대한 과실로 인한 책임을 배제하지 않습니다.
-제18조 손해배상
-회사 또는 이용자가 본 약관을 위반하여 상대방에게 손해를 입힌 경우, 귀책 있는 당사자는 그 손해를 배상해야 합니다.
-이용자가 법령 또는 본 약관을 위반하여 회사에 손해가 발생한 경우, 이용자는 회사에 발생한 손해를 배상해야 합니다.
-제19조 준거법 및 분쟁 해결
-본 약관은 대한민국 법령에 따라 해석되고 적용됩니다.
-회사와 이용자 간에 분쟁이 발생한 경우, 양 당사자는 분쟁 해결을 위해 성실히 협의합니다.
-협의로 해결되지 않는 분쟁에 대해서는 관련 법령에 따른 관할 법원을 제1심 관할 법원으로 합니다.
-제20조 고객센터
+  <section id="kr-article-12">
+    <h2>제12조 앱 접근권한</h2>
+    <p>회사는 서비스 제공에 필요한 경우 이용자의 기기 접근권한을 요청할 수 있습니다.</p>
+    <p>선택 접근권한은 해당 기능 이용 시에만 요청되며, 이용자는 이를 허용하지 않아도 기본 서비스 이용이 가능합니다. 다만 해당 권한이 필요한 일부 기능은 제한될 수 있습니다.</p>
+    <div class="notice">접근권한 예시는 다음과 같습니다. 실제 사용하는 권한만 남기고 사용하지 않는 권한은 삭제하시기 바랍니다.</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>권한</th>
+            <th>사용 목적</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>알림</td>
+            <td>서비스 공지, 계정 보안 알림, 이용 안내 발송</td>
+          </tr>
+          <tr>
+            <td>사진 또는 파일</td>
+            <td>이용자가 직접 선택한 이미지 또는 파일 업로드</td>
+          </tr>
+          <tr>
+            <td>카메라</td>
+            <td>프로필 이미지 촬영 또는 이미지 업로드</td>
+          </tr>
+          <tr>
+            <td>위치</td>
+            <td>위치 기반 기능 제공</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>회사는 앱 접근권한을 서비스 제공 목적 외로 사용하지 않습니다.</p>
+  </section>
 
-서비스 이용과 관련한 문의는 아래 연락처로 접수할 수 있습니다.
+  <section id="kr-article-13">
+    <h2>제13조 게시물 및 이용자 콘텐츠</h2>
+    <div class="notice">이 조항은 이용자가 앱 안에 글, 사진, 리뷰, 댓글, 파일 등을 업로드하는 기능이 있는 경우 사용합니다. 해당 기능이 없다면 삭제해도 됩니다.</div>
+    <p>이용자가 서비스에 게시하거나 업로드한 콘텐츠의 권리와 책임은 해당 이용자에게 있습니다.</p>
+    <p>이용자는 타인의 저작권, 초상권, 개인정보, 명예 등 권리를 침해하는 콘텐츠를 게시해서는 안 됩니다.</p>
+    <p>회사는 이용자 콘텐츠가 법령 또는 본 약관을 위반한다고 판단되는 경우 사전 통지 후 삭제, 비공개, 이용 제한 등의 조치를 할 수 있습니다. 다만 긴급한 권리 침해 또는 법령 위반이 명백한 경우 사전 통지 없이 조치할 수 있습니다.</p>
+    <p>회사는 서비스 운영, 노출, 홍보 및 개선을 위해 필요한 범위에서 이용자 콘텐츠를 사용할 수 있으며, 이 경우 관련 법령을 준수합니다.</p>
+  </section>
 
-회사명: 네오코드
-대표자: 박은성
-사업자등록번호: 422-29-01059
-이메일: neocode.helpdesk@gmail.com
-문의 디스코드: https://discord.gg/RyFpBUWt6
-운영시간: 연중무휴
-부칙
+  <section id="kr-article-14">
+    <h2>제14조 지식재산권</h2>
+    <p>서비스 및 서비스에 포함된 디자인, 화면, 로고, 문구, 소프트웨어, 데이터베이스, 콘텐츠 등에 관한 지식재산권은 회사 또는 정당한 권리자에게 귀속됩니다.</p>
+    <p>이용자는 회사의 사전 서면 동의 없이 서비스 또는 서비스 내 콘텐츠를 복제, 배포, 전송, 전시, 판매, 수정, 2차적 저작물 작성 등의 방식으로 이용할 수 없습니다.</p>
+    <p>이용자가 서비스 이용 과정에서 회사에 제공한 의견, 제안, 개선 아이디어 등은 회사가 서비스 개선을 위해 사용할 수 있습니다.</p>
+  </section>
 
-본 약관은 2026년 06월 06일부터 시행합니다.
+  <section id="kr-article-15">
+    <h2>제15조 알림 및 마케팅 정보</h2>
+    <p>회사는 서비스 운영에 필요한 공지, 보안 안내, 계정 관련 알림, 약관 또는 개인정보 처리방침 변경 안내 등을 이용자에게 발송할 수 있습니다.</p>
+    <p>회사는 이용자의 별도 동의를 받은 경우 이벤트, 혜택, 광고성 정보 등 마케팅 정보를 발송할 수 있습니다.</p>
+    <p>이용자는 언제든지 마케팅 정보 수신을 철회할 수 있으며, 철회하더라도 서비스 이용에는 영향을 주지 않습니다.</p>
+    <p>단, 서비스 이용에 필수적인 공지 또는 거래·계정·보안 관련 안내는 수신 동의 여부와 관계없이 발송될 수 있습니다.</p>
+  </section>
+
+  <section id="kr-article-16">
+    <h2>제16조 서비스 변경, 중단 및 종료</h2>
+    <p>회사는 운영상, 기술상 필요에 따라 서비스의 전부 또는 일부를 변경하거나 중단할 수 있습니다.</p>
+    <p>회사는 서비스 변경 또는 중단이 이용자에게 중대한 영향을 미치는 경우 사전에 공지합니다. 다만 장애, 보안 사고, 천재지변, 긴급 점검 등 부득이한 사유가 있는 경우 사후에 공지할 수 있습니다.</p>
+    <p>회사가 서비스를 종료하는 경우 종료일 최소 30일 전까지 서비스 내 공지사항 또는 알림을 통해 안내합니다.</p>
+  </section>
+
+  <section id="kr-article-17">
+    <h2>제17조 책임 제한</h2>
+    <p>회사는 천재지변, 전쟁, 테러, 기간통신사업자의 장애, 앱스토어 또는 플랫폼 장애, 클라우드 서비스 장애, 기타 회사의 합리적 통제 범위를 벗어난 사유로 서비스를 제공할 수 없는 경우 책임을 부담하지 않습니다.</p>
+    <p>회사는 이용자의 귀책사유로 발생한 서비스 이용 장애 또는 손해에 대해 책임을 부담하지 않습니다.</p>
+    <p>회사는 이용자 간 또는 이용자와 제3자 간에 서비스를 매개로 발생한 분쟁에 개입할 의무가 없으며, 회사의 고의 또는 중대한 과실이 없는 한 이에 대한 손해를 배상할 책임을 부담하지 않습니다.</p>
+    <p>본 조항은 회사의 고의 또는 중대한 과실로 인한 책임을 배제하지 않습니다.</p>
+  </section>
+
+  <section id="kr-article-18">
+    <h2>제18조 손해배상</h2>
+    <p>회사 또는 이용자가 본 약관을 위반하여 상대방에게 손해를 입힌 경우, 귀책 있는 당사자는 그 손해를 배상해야 합니다.</p>
+    <p>이용자가 법령 또는 본 약관을 위반하여 회사에 손해가 발생한 경우, 이용자는 회사에 발생한 손해를 배상해야 합니다.</p>
+  </section>
+
+  <section id="kr-article-19">
+    <h2>제19조 준거법 및 분쟁 해결</h2>
+    <p>본 약관은 대한민국 법령에 따라 해석되고 적용됩니다.</p>
+    <p>회사와 이용자 간에 분쟁이 발생한 경우, 양 당사자는 분쟁 해결을 위해 성실히 협의합니다.</p>
+    <p>협의로 해결되지 않는 분쟁에 대해서는 관련 법령에 따른 관할 법원을 제1심 관할 법원으로 합니다.</p>
+  </section>
+
+  <section id="kr-article-20">
+    <h2>제20조 고객센터</h2>
+    <p>서비스 이용과 관련한 문의는 아래 연락처로 접수할 수 있습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr>
+            <th>회사명</th>
+            <td>네오코드</td>
+          </tr>
+          <tr>
+            <th>대표자</th>
+            <td>박은성</td>
+          </tr>
+          <tr>
+            <th>사업자등록번호</th>
+            <td>422-29-01059</td>
+          </tr>
+          <tr>
+            <th>이메일</th>
+            <td><a href="mailto:neocode.helpdesk@gmail.com">neocode.helpdesk@gmail.com</a></td>
+          </tr>
+          <tr>
+            <th>문의 디스코드</th>
+            <td><a href="https://discord.gg/RyFpBUWt6" target="_blank" rel="noopener noreferrer">https://discord.gg/RyFpBUWt6</a></td>
+          </tr>
+          <tr>
+            <th>운영시간</th>
+            <td>연중무휴</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="kr-appendix">
+    <h2>부칙</h2>
+    <p>본 약관은 2026년 06월 06일부터 시행합니다.</p>
+  </section>
+
+  <footer class="footer">
+    <p>© NeoCode. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<div id="en" class="lang-content">
+
+  <header class="header">
+    <h1>NeoCode Terms of Service</h1>
+    <dl class="meta">
+      <dt>Effective Date</dt>
+      <dd>June 6, 2026</dd>
+      <dt>Company</dt>
+      <dd>NeoCode</dd>
+      <dt>Contact</dt>
+      <dd><a href="mailto:neocode.helpdesk@gmail.com">neocode.helpdesk@gmail.com</a></dd>
+    </dl>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#en-article-1">Purpose</a></li>
+      <li><a href="#en-article-2">Definitions</a></li>
+      <li><a href="#en-article-3">Posting and Effect of Terms</a></li>
+      <li><a href="#en-article-4">Service Details</a></li>
+      <li><a href="#en-article-5">Registration and Account</a></li>
+      <li><a href="#en-article-6">Login Information and Account Management</a></li>
+      <li><a href="#en-article-7">Withdrawal and Termination</a></li>
+      <li><a href="#en-article-8">Restriction of Service Use</a></li>
+      <li><a href="#en-article-9">User Obligations</a></li>
+      <li><a href="#en-article-10">Company Obligations</a></li>
+      <li><a href="#en-article-11">Privacy and Data Processing</a></li>
+      <li><a href="#en-article-12">App Permissions</a></li>
+      <li><a href="#en-article-13">Posts and User Content</a></li>
+      <li><a href="#en-article-14">Intellectual Property</a></li>
+      <li><a href="#en-article-15">Notifications and Marketing Information</a></li>
+      <li><a href="#en-article-16">Service Changes, Suspension, and Termination</a></li>
+      <li><a href="#en-article-17">Limitation of Liability</a></li>
+      <li><a href="#en-article-18">Compensation for Damages</a></li>
+      <li><a href="#en-article-19">Governing Law and Dispute Resolution</a></li>
+      <li><a href="#en-article-20">Customer Support</a></li>
+    </ol>
+  </nav>
+
+  <section id="en-article-1">
+    <h2>Article 1 Purpose</h2>
+    <p>These Terms of Service set forth the rights, obligations, responsibilities, and service use conditions between NeoCode (the “Company”) and users in relation to the use of mobile applications and related services provided by the Company (the “Service”).</p>
+  </section>
+
+  <section id="en-article-2">
+    <h2>Article 2 Definitions</h2>
+    <p>The terms used in these Terms have the following meanings.</p>
+    <ul>
+      <li>“Service” means functions, content, information, account management, and other related services provided by the Company through mobile applications.</li>
+      <li>“User” means both members and non-members who use the Service in accordance with these Terms.</li>
+      <li>“Member” means a person who registers for the Service, creates an account, and uses the Service.</li>
+      <li>“Account” means login information created for member identification and service use.</li>
+      <li>“Data” means information entered by a member or generated during service use, including access records, usage records, and device information.</li>
+    </ul>
+  </section>
+
+  <section id="en-article-3">
+    <h2>Article 3 Posting and Effect of Terms</h2>
+    <p>The Company posts these Terms within the app, on the website, or on the registration screen so that users can easily review them.</p>
+    <p>When a user agrees to these Terms and begins registration or use of the Service, the user is deemed to have agreed to these Terms.</p>
+    <p>The Company may amend these Terms to the extent that such amendment does not violate applicable laws.</p>
+    <p>When the Company amends these Terms, it will notify users of the amended details, effective date, and reason for amendment through notices or alerts within the Service at least seven days before the effective date. For changes that are unfavorable or important to users, the Company will notify users at least thirty days in advance.</p>
+    <p>If a user does not agree to the amended Terms, the user may stop using the Service and request account withdrawal. Continued use of the Service after the effective date of the amended Terms is deemed acceptance of the amended Terms.</p>
+  </section>
+
+  <section id="en-article-4">
+    <h2>Article 4 Service Details</h2>
+    <p>The Company provides users with the following services.</p>
+    <ul>
+      <li>Registration, login, and account management functions</li>
+      <li>Basic in-app functions and content</li>
+      <li>Storage and management of user service usage records</li>
+      <li>Service improvement, error checking, security maintenance, and customer inquiry handling</li>
+      <li>Services additionally developed by the Company or provided through partnerships with other companies</li>
+    </ul>
+    <p>The Company may change all or part of the Service for service quality improvement, operational needs, or technical needs.</p>
+  </section>
+
+  <section id="en-article-5">
+    <h2>Article 5 Registration and Account</h2>
+    <p>A user becomes a member by applying for registration according to the procedure set by the Company and by the Company accepting the application.</p>
+    <p>When registering, users must provide accurate information and must not use false information or another person’s information.</p>
+    <p>The Company may reject registration or later terminate the service agreement in any of the following cases.</p>
+    <ul>
+      <li>The user uses another person’s name or information</li>
+      <li>The user enters false information</li>
+      <li>The user has previously been restricted from using the Service due to a violation of the Terms or similar reason</li>
+      <li>The Company determines that there is an operational or security issue</li>
+    </ul>
+    <p>As a general rule, the Company does not allow registration by children under the age of 14. If the Company permits registration by children under 14, it will obtain consent from a legal representative in accordance with applicable laws.</p>
+  </section>
+
+  <section id="en-article-6">
+    <h2>Article 6 Login Information and Account Management</h2>
+    <p>Members are responsible for managing their own account, password, social login information, and other login information.</p>
+    <p>The Company is not liable for damages caused by a member’s negligent management, permission of third-party use, password leakage, or similar causes, unless caused by the Company’s intent or gross negligence.</p>
+    <p>If a member becomes aware that their account has been stolen or used without authorization by a third party, the member must immediately notify the Company.</p>
+    <p>If account theft, a security incident, abnormal login attempts, or similar issues are suspected, the Company may temporarily restrict account use to protect the member.</p>
+  </section>
+
+  <section id="en-article-7">
+    <h2>Article 7 Withdrawal and Termination</h2>
+    <p>Members may request account withdrawal at any time through the in-app withdrawal function or customer support.</p>
+    <p>When the Company receives a withdrawal request, it will proceed with the necessary procedures in accordance with applicable laws and the Privacy Policy.</p>
+    <p>Upon account withdrawal, the member’s account information and service usage data will be deleted or separately stored in accordance with the Privacy Policy.</p>
+    <p>However, information that must be retained under applicable laws or is necessary for preventing misuse, resolving disputes, or handling complaints may be retained for the prescribed period.</p>
+  </section>
+
+  <section id="en-article-8">
+    <h2>Article 8 Restriction of Service Use</h2>
+    <p>If a user engages in any of the following acts, the Company may restrict service use or terminate the service agreement after prior notice. However, the Company may take action without prior notice if urgent security needs exist or a violation of law is clear.</p>
+    <ul>
+      <li>Unauthorized use of another person’s account or personal information</li>
+      <li>Interference with the normal operation of the Service</li>
+      <li>Acts that threaten security, such as hacking, distribution of malicious code, or use of abnormal automated programs</li>
+      <li>Infringement of intellectual property rights, reputation, privacy, or other rights of the Company or a third party</li>
+      <li>Entering false information, using the Service through improper means, or violating laws</li>
+      <li>Other acts for which the Company reasonably determines service use restriction is necessary</li>
+    </ul>
+  </section>
+
+  <section id="en-article-9">
+    <h2>Article 9 User Obligations</h2>
+    <p>Users must comply with the following when using the Service.</p>
+    <ul>
+      <li>Users must comply with applicable laws, these Terms, service use guides, and Company notices.</li>
+      <li>Users must not infringe the rights or legitimate interests of others.</li>
+      <li>Users must not interfere with stable service operation or use the Service for improper purposes.</li>
+      <li>If information provided during registration or service use changes, users must update it with the latest information.</li>
+      <li>Users must not reproduce, sell, transfer, lend, resell, or commercially use the Service without the Company’s prior consent.</li>
+    </ul>
+  </section>
+
+  <section id="en-article-10">
+    <h2>Article 10 Company Obligations</h2>
+    <p>The Company complies with applicable laws and these Terms and makes efforts to provide stable services.</p>
+    <p>The Company protects users’ personal information in accordance with applicable laws and the Privacy Policy.</p>
+    <p>If a service failure occurs, the Company makes reasonable efforts to restore the Service promptly.</p>
+    <p>If opinions or complaints raised by users are deemed legitimate, the Company makes efforts to handle them.</p>
+  </section>
+
+  <section id="en-article-11">
+    <h2>Article 11 Privacy and Data Processing</h2>
+    <p>The Company may collect and use users’ personal information and service usage data to the extent necessary to provide the Service.</p>
+    <p>The basic information that the Company may collect is as follows.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Registration and login information</td>
+            <td>Email address, password, nickname, social login identifier</td>
+          </tr>
+          <tr>
+            <td>Service usage information</td>
+            <td>Access date and time, app usage records, feature usage records, inquiry details</td>
+          </tr>
+          <tr>
+            <td>Device and technical information</td>
+            <td>Device model, operating system, app version, IP address, error and crash records</td>
+          </tr>
+          <tr>
+            <td>Notification information</td>
+            <td>Push notification consent status, push token</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The Company uses collected information for the following purposes.</p>
+    <ul>
+      <li>User identification and login provision</li>
+      <li>Service provision, maintenance, improvement, and customized function provision</li>
+      <li>Error checking, security management, and prevention of improper use</li>
+      <li>Customer inquiry handling and notice delivery</li>
+      <li>Compliance with applicable laws and response to disputes</li>
+    </ul>
+    <p>The Company processes users’ personal information within the purposes and scope set out in the Privacy Policy, and does not provide such information to third parties except where permitted by law or with separate consent from the user.</p>
+    <p>If the Company entrusts personal information processing to external companies for service operation, it will disclose the entrusted party and entrusted work in the Privacy Policy.</p>
+    <p>Details such as collected personal information items, purposes of use, retention period, destruction procedures, third-party provision, entrustment, and how users may exercise their rights are governed by the separate Privacy Policy.</p>
+  </section>
+
+  <section id="en-article-12">
+    <h2>Article 12 App Permissions</h2>
+    <p>The Company may request device permissions from users where necessary to provide the Service.</p>
+    <p>Optional permissions are requested only when the relevant function is used, and users may use the basic Service even if they do not grant such permissions. However, some functions that require the relevant permissions may be restricted.</p>
+    <div class="notice">The following are examples of app permissions. Keep only the permissions actually used by the app and remove any unused permissions.</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Purpose of Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Notifications</td>
+            <td>Service notices, account security alerts, and usage guidance</td>
+          </tr>
+          <tr>
+            <td>Photos or files</td>
+            <td>Upload images or files directly selected by the user</td>
+          </tr>
+          <tr>
+            <td>Camera</td>
+            <td>Take profile images or upload images</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>Provide location-based features</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The Company does not use app permissions for purposes other than providing the Service.</p>
+  </section>
+
+  <section id="en-article-13">
+    <h2>Article 13 Posts and User Content</h2>
+    <div class="notice">Use this article only if users can upload posts, photos, reviews, comments, files, or similar content within the app. If the app does not provide such features, this article may be removed.</div>
+    <p>The rights and responsibilities for content posted or uploaded by users to the Service belong to the relevant users.</p>
+    <p>Users must not post content that infringes another person’s copyright, portrait rights, personal information, reputation, or other rights.</p>
+    <p>If the Company determines that user content violates laws or these Terms, the Company may take measures such as deletion, private processing, or use restriction after prior notice. However, the Company may take action without prior notice if urgent rights infringement or a clear legal violation exists.</p>
+    <p>The Company may use user content to the extent necessary for service operation, display, promotion, and improvement, and will comply with applicable laws in such cases.</p>
+  </section>
+
+  <section id="en-article-14">
+    <h2>Article 14 Intellectual Property</h2>
+    <p>Intellectual property rights related to the Service and the design, screens, logos, wording, software, databases, content, and other materials included in the Service belong to the Company or legitimate rights holders.</p>
+    <p>Users may not reproduce, distribute, transmit, display, sell, modify, create derivative works from, or otherwise use the Service or content within the Service without the Company’s prior written consent.</p>
+    <p>Opinions, suggestions, improvement ideas, and similar feedback provided by users to the Company during service use may be used by the Company for service improvement.</p>
+  </section>
+
+  <section id="en-article-15">
+    <h2>Article 15 Notifications and Marketing Information</h2>
+    <p>The Company may send users notices necessary for service operation, security guidance, account-related notifications, and notices of changes to these Terms or the Privacy Policy.</p>
+    <p>The Company may send marketing information such as events, benefits, and advertising information if the user has given separate consent.</p>
+    <p>Users may withdraw consent to receive marketing information at any time, and withdrawal does not affect service use.</p>
+    <p>However, essential notices related to service use, transactions, accounts, or security may be sent regardless of consent to receive marketing information.</p>
+  </section>
+
+  <section id="en-article-16">
+    <h2>Article 16 Service Changes, Suspension, and Termination</h2>
+    <p>The Company may change or suspend all or part of the Service due to operational or technical needs.</p>
+    <p>If a service change or suspension has a material impact on users, the Company will provide prior notice. However, the Company may provide notice afterward in unavoidable circumstances such as failures, security incidents, natural disasters, or emergency maintenance.</p>
+    <p>If the Company terminates the Service, it will notify users through in-service notices or alerts at least thirty days before the termination date.</p>
+  </section>
+
+  <section id="en-article-17">
+    <h2>Article 17 Limitation of Liability</h2>
+    <p>The Company is not liable if it cannot provide the Service due to natural disasters, war, terrorism, telecommunications carrier failures, app store or platform failures, cloud service failures, or other causes beyond the Company’s reasonable control.</p>
+    <p>The Company is not liable for service use failures or damages caused by reasons attributable to users.</p>
+    <p>The Company has no obligation to intervene in disputes between users or between a user and a third party arising through the Service, and is not liable for damages unless caused by the Company’s intent or gross negligence.</p>
+    <p>This article does not exclude liability caused by the Company’s intent or gross negligence.</p>
+  </section>
+
+  <section id="en-article-18">
+    <h2>Article 18 Compensation for Damages</h2>
+    <p>If the Company or a user violates these Terms and causes damage to the other party, the party at fault must compensate for such damage.</p>
+    <p>If a user violates applicable laws or these Terms and causes damage to the Company, the user must compensate the Company for the damage incurred.</p>
+  </section>
+
+  <section id="en-article-19">
+    <h2>Article 19 Governing Law and Dispute Resolution</h2>
+    <p>These Terms are interpreted and applied in accordance with the laws of the Republic of Korea.</p>
+    <p>If a dispute arises between the Company and a user, both parties will sincerely consult with each other to resolve the dispute.</p>
+    <p>For disputes not resolved through consultation, the court having jurisdiction under applicable laws will be the court of first instance.</p>
+  </section>
+
+  <section id="en-article-20">
+    <h2>Article 20 Customer Support</h2>
+    <p>Inquiries related to service use may be submitted through the contact information below.</p>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr>
+            <th>Company</th>
+            <td>NeoCode</td>
+          </tr>
+          <tr>
+            <th>Representative</th>
+            <td>Park Eunseong</td>
+          </tr>
+          <tr>
+            <th>Business Registration Number</th>
+            <td>422-29-01059</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><a href="mailto:neocode.helpdesk@gmail.com">neocode.helpdesk@gmail.com</a></td>
+          </tr>
+          <tr>
+            <th>Discord Support</th>
+            <td><a href="https://discord.gg/RyFpBUWt6" target="_blank" rel="noopener noreferrer">https://discord.gg/RyFpBUWt6</a></td>
+          </tr>
+          <tr>
+            <th>Operating Hours</th>
+            <td>Open all year round</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="en-appendix">
+    <h2>Addendum</h2>
+    <p>These Terms take effect on June 6, 2026.</p>
+  </section>
+
+  <footer class="footer">
+    <p>© NeoCode. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+function changeLanguage(lang){
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  document.getElementById(lang).classList.add('active');
+
+  document.getElementById('btnKR').classList.remove('active');
+  document.getElementById('btnEN').classList.remove('active');
+
+  if(lang === 'kr') {
+    document.documentElement.lang = 'ko';
+    document.getElementById('btnKR').classList.add('active');
+  } else {
+    document.documentElement.lang = 'en';
+    document.getElementById('btnEN').classList.add('active');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
