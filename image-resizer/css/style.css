@@ -132,6 +132,7 @@ main {
     flex-direction: column;
     gap: 15px;
     overflow-y: auto;
+    min-height: 0;
 }
 
 /* 이미지 리스트 섹션 */
@@ -141,6 +142,18 @@ main {
     padding: 15px;
     box-shadow: var(--shadow);
     flex-shrink: 0;
+    max-height: clamp(160px, 24vh, 240px);
+    overflow: hidden;
+}
+
+.image-list-section > div {
+    height: 100%;
+    min-height: 0;
+    align-items: stretch !important;
+}
+
+.image-list-section > div > div:first-child {
+    min-width: 0;
 }
 
 .image-list-section h3 {
@@ -152,8 +165,26 @@ main {
 
 .image-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
     gap: 10px;
+    max-height: calc(clamp(160px, 24vh, 240px) - 58px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2px 4px 4px 2px;
+}
+
+.image-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.image-list::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 3px;
+}
+
+.image-list::-webkit-scrollbar-thumb {
+    background: var(--border-gray);
+    border-radius: 3px;
 }
 
 .image-item {
@@ -167,7 +198,7 @@ main {
 
 .image-item canvas {
     width: 100%;
-    height: 80px;
+    height: 72px;
     display: block;
 }
 
@@ -200,7 +231,9 @@ main {
     padding: 10px;
     background: #f9fafb;
     border-radius: 6px;
-    min-width: 160px;
+    min-width: 220px;
+    max-width: 260px;
+    overflow-wrap: anywhere;
 }
 
 .info-item-compact {
@@ -225,6 +258,30 @@ main {
 /* 업로드 섹션 */
 .upload-section {
     flex-shrink: 0;
+}
+
+body.has-images .upload-box {
+    padding: 8px 14px;
+}
+
+body.has-images .upload-label {
+    min-height: 44px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px;
+}
+
+body.has-images .upload-icon {
+    font-size: 1.25rem;
+}
+
+body.has-images .upload-label p {
+    font-size: 0.9rem;
+}
+
+body.has-images .upload-label small {
+    display: none;
 }
 
 .upload-box {
@@ -310,7 +367,8 @@ main {
     border-radius: 12px;
     padding: 15px;
     box-shadow: var(--shadow-lg);
-    flex: 1;
+    flex: 1 0 clamp(480px, 58vh, 680px);
+    min-height: 480px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -321,6 +379,7 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     height: 100%;
+    min-height: 0;
 }
 
 @media (max-width: 1200px) {
@@ -335,6 +394,8 @@ main {
     flex-direction: column;
     gap: 8px;
     overflow: hidden;
+    position: relative;
+    min-height: 0;
 }
 
 .preview-panel h3 {
@@ -350,9 +411,10 @@ main {
     border-radius: 8px;
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex: 1;
+    min-height: 360px;
     position: relative;
     overflow: auto;
     cursor: crosshair;
@@ -365,13 +427,16 @@ main {
 .canvas-wrapper {
     position: relative;
     display: inline-block;
+    max-width: 100%;
     overflow: hidden;
     line-height: 0;
 }
 
 canvas {
     max-width: 100%;
-    max-height: 100%;
+    max-height: none;
+    width: auto;
+    height: auto;
     display: block;
     background: white;
     border-radius: 4px;
@@ -423,9 +488,10 @@ canvas {
 
 /* 하단 중앙 화살표 버튼 */
 .btn-expand-arrow {
-    align-self: center;
-    flex-shrink: 0;
-    margin-top: 8px;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin: 0;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -473,7 +539,7 @@ canvas {
 }
 
 .editor-section.preview-expanded canvas {
-    max-height: 72vh;
+    max-height: none;
 }
 
 .editor-section.preview-expanded .btn-expand-arrow {
@@ -724,6 +790,30 @@ footer p {
         padding: 10px;
     }
 
+    .image-list-section > div {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .image-list-section {
+        max-height: 320px;
+        overflow-y: auto;
+    }
+
+    .image-list {
+        max-height: 110px;
+    }
+
+    .image-info-compact {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .editor-section {
+        flex-basis: 520px;
+        min-height: 520px;
+    }
+
     header {
         padding: 30px 15px;
     }
@@ -747,4 +837,75 @@ footer p {
     .preview-box {
         min-height: 300px;
     }
+}
+
+.percent-resize-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.percent-resize-controls[hidden] {
+    display: none !important;
+}
+
+.percent-input-wrap {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.percent-input-wrap:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.percent-input-wrap input[type="number"] {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.percent-input-wrap input[type="number"]:focus {
+    box-shadow: none;
+}
+
+.percent-input-wrap span {
+    padding: 0 10px;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.percent-presets {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.percent-preset-btn {
+    padding: 9px 12px;
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    background: white;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.percent-preset-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.percent-preset-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
 }

@@ -16,7 +16,34 @@ class ImageModifier {
         };
 
         this.initLogo();
+        this.initResizeControls();
         this.initEventListeners();
+        this.updateResizeModeUI();
+    }
+
+    initResizeControls() {
+        const resizeSection = document.querySelector('.control-section[data-section="resize"]');
+        if (!resizeSection || document.getElementById('percentResizeControls')) return;
+
+        const percentControls = document.createElement('div');
+        percentControls.id = 'percentResizeControls';
+        percentControls.className = 'percent-resize-controls';
+        percentControls.hidden = true;
+        percentControls.innerHTML = `
+            <div class="input-group">
+                <label for="resizePercent">%</label>
+                <div class="percent-input-wrap">
+                    <input type="number" id="resizePercent" min="1" max="1000" value="100">
+                    <span>%</span>
+                </div>
+            </div>
+            <div class="percent-presets" aria-label="Percent presets">
+                <button type="button" class="percent-preset-btn" data-percent="25">25%</button>
+                <button type="button" class="percent-preset-btn" data-percent="50">50%</button>
+            </div>
+        `;
+
+        resizeSection.appendChild(percentControls);
     }
 
     initLogo() {
@@ -57,7 +84,23 @@ class ImageModifier {
 
         // 리사이즈 모드
         document.querySelectorAll('input[name="resizeMode"]').forEach(radio => {
-            radio.addEventListener('change', () => this.updatePreview());
+            radio.addEventListener('change', () => {
+                this.updateResizeModeUI();
+                this.updatePreview();
+            });
+        });
+
+        document.getElementById('resizePercent').addEventListener('input', () => {
+            this.updatePercentPresetState();
+            this.updatePreview();
+        });
+
+        document.querySelectorAll('.percent-preset-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.getElementById('resizePercent').value = button.dataset.percent;
+                this.updatePercentPresetState();
+                this.updatePreview();
+            });
         });
 
         // 리사이즈 값
@@ -250,11 +293,13 @@ class ImageModifier {
 
         document.getElementById('imageListSection').style.display = 'block';
         document.getElementById('editorSection').style.display = 'flex';
+        document.body.classList.add('has-images');
 
         // 초기값 설정
         const img = this.images[index];
         document.getElementById('resizeWidth').value = img.width;
         document.getElementById('resizeHeight').value = img.height;
+        document.getElementById('resizePercent').value = 100;
         document.getElementById('newFileName').value = img.name;
 
         // 크롭 초기값
@@ -484,6 +529,41 @@ class ImageModifier {
         }
     }
 
+    updateResizeModeUI() {
+        const resizeMode = document.querySelector('input[name="resizeMode"]:checked').value;
+        const isPercent = resizeMode === 'percent';
+        const pixelControls = [
+            document.getElementById('resizeWidth')?.closest('.input-group'),
+            document.getElementById('resizeHeight')?.closest('.input-group'),
+            document.getElementById('maintainAspect')?.closest('.checkbox'),
+        ];
+        const percentControls = document.getElementById('percentResizeControls');
+
+        pixelControls.forEach(control => {
+            if (control) control.style.display = isPercent ? 'none' : '';
+        });
+
+        if (percentControls) {
+            percentControls.hidden = !isPercent;
+        }
+
+        if (isPercent) {
+            this.updatePercentPresetState();
+        }
+    }
+
+    updatePercentPresetState() {
+        const percent = parseFloat(document.getElementById('resizePercent').value);
+        document.querySelectorAll('.percent-preset-btn').forEach(button => {
+            button.classList.toggle('active', percent === parseFloat(button.dataset.percent));
+        });
+    }
+
+    getResizePercent() {
+        const value = parseFloat(document.getElementById('resizePercent').value);
+        return Number.isFinite(value) && value > 0 ? value : 100;
+    }
+
     updateHeightFromWidth() {
         const width = parseFloat(document.getElementById('resizeWidth').value);
         const img = this.images[this.currentIndex];
@@ -521,15 +601,16 @@ class ImageModifier {
         let height = img.height;
 
         const resizeMode = document.querySelector('input[name="resizeMode"]:checked').value;
-        const inputWidth = parseFloat(document.getElementById('resizeWidth').value);
-        const inputHeight = parseFloat(document.getElementById('resizeHeight').value);
 
         if (resizeMode === 'pixels') {
-            width = inputWidth;
-            height = inputHeight;
+            const inputWidth = parseFloat(document.getElementById('resizeWidth').value);
+            const inputHeight = parseFloat(document.getElementById('resizeHeight').value);
+            width = Number.isFinite(inputWidth) && inputWidth > 0 ? Math.round(inputWidth) : img.width;
+            height = Number.isFinite(inputHeight) && inputHeight > 0 ? Math.round(inputHeight) : img.height;
         } else {
-            width = Math.round(img.width * inputWidth / 100);
-            height = Math.round(img.height * inputHeight / 100);
+            const percent = this.getResizePercent();
+            width = Math.max(1, Math.round(img.width * percent / 100));
+            height = Math.max(1, Math.round(img.height * percent / 100));
         }
 
         tempCanvas.width = width;
