@@ -1,0 +1,203 @@
+﻿[2026-07-01 22:32:18] Config: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\auto-updater-config.json
+[2026-07-01 22:32:18] 서버: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:32:18] 대상: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows
+[2026-07-01 22:32:18] 서버 updatelist와 로컬 updatelist를 비교하고 변경/추가 파일만 다운로드합니다.
+[2026-07-01 22:32:18] updatelist.txt 다운로드: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:32:18] updatelist.txt 항목 43개를 확인했습니다.
+[2026-07-01 22:32:18] 다운로드: libcef.dll_0
+[2026-07-01 22:32:26] 다운로드 완료: libcef.dll_0
+[2026-07-01 22:32:26] 다운로드: libcef.dll_1
+[2026-07-01 22:32:32] 다운로드 완료: libcef.dll_1
+[2026-07-01 22:32:32] 다운로드: libcef.dll_2
+[2026-07-01 22:32:37] 다운로드 완료: libcef.dll_2
+[2026-07-01 22:32:37] 병합: libcef.dll
+[2026-07-01 22:32:37] 병합 완료: libcef.dll
+[2026-07-01 22:32:37] 다운로드: CefSharp.Core.dll
+[2026-07-01 22:32:37] 다운로드 완료: CefSharp.Core.dll
+[2026-07-01 22:32:37] 다운로드: CefSharp.Core.Runtime.dll
+[2026-07-01 22:32:38] 다운로드 완료: CefSharp.Core.Runtime.dll
+[2026-07-01 22:32:38] 다운로드: CefSharp.dll
+[2026-07-01 22:32:38] 다운로드 완료: CefSharp.dll
+[2026-07-01 22:32:38] 다운로드: CefSharp.WinForms.dll
+[2026-07-01 22:32:38] 다운로드 완료: CefSharp.WinForms.dll
+[2026-07-01 22:32:38] 다운로드: chrome_100_percent.pak
+[2026-07-01 22:32:38] 다운로드 완료: chrome_100_percent.pak
+[2026-07-01 22:32:38] 다운로드: chrome_200_percent.pak
+[2026-07-01 22:32:39] 다운로드 완료: chrome_200_percent.pak
+[2026-07-01 22:32:39] 다운로드: chrome_elf.dll
+[2026-07-01 22:32:39] 다운로드 완료: chrome_elf.dll
+[2026-07-01 22:32:39] 다운로드: d3dcompiler_47.dll
+[2026-07-01 22:32:40] 다운로드 완료: d3dcompiler_47.dll
+[2026-07-01 22:32:40] 다운로드: dxcompiler.dll
+[2026-07-01 22:32:42] 다운로드 완료: dxcompiler.dll
+[2026-07-01 22:32:42] 다운로드: dxil.dll
+[2026-07-01 22:32:42] 다운로드 완료: dxil.dll
+[2026-07-01 22:32:42] 다운로드: e_sqlite3.dll
+[2026-07-01 22:32:43] 다운로드 완료: e_sqlite3.dll
+[2026-07-01 22:32:43] 다운로드: Google.Apis.Auth.dll
+[2026-07-01 22:32:43] 다운로드 완료: Google.Apis.Auth.dll
+[2026-07-01 22:32:43] 다운로드: Google.Apis.Core.dll
+[2026-07-01 22:32:43] 다운로드 완료: Google.Apis.Core.dll
+[2026-07-01 22:32:43] 다운로드: Google.Apis.dll
+[2026-07-01 22:32:43] 다운로드 완료: Google.Apis.dll
+[2026-07-01 22:32:43] 다운로드: Google.GenAI.dll
+[2026-07-01 22:32:44] 다운로드 완료: Google.GenAI.dll
+[2026-07-01 22:32:44] 다운로드: HtmlAgilityPack.dll
+[2026-07-01 22:32:44] 다운로드 완료: HtmlAgilityPack.dll
+[2026-07-01 22:32:44] 다운로드: icudtl.dat
+[2026-07-01 22:32:45] 다운로드 완료: icudtl.dat
+[2026-07-01 22:32:45] 다운로드: Ijwhost.dll
+[2026-07-01 22:32:45] 다운로드 완료: Ijwhost.dll
+[2026-07-01 22:32:45] 다운로드: libEGL.dll
+[2026-07-01 22:32:45] 다운로드 완료: libEGL.dll
+[2026-07-01 22:32:45] 다운로드: libGLESv2.dll
+[2026-07-01 22:32:46] 다운로드 완료: libGLESv2.dll
+[2026-07-01 22:32:46] 다운로드: Microsoft.Data.Sqlite.dll
+[2026-07-01 22:32:46] 다운로드 완료: Microsoft.Data.Sqlite.dll
+[2026-07-01 22:32:46] 다운로드: Microsoft.Extensions.AI.Abstractions.dll
+[2026-07-01 22:32:46] 다운로드 완료: Microsoft.Extensions.AI.Abstractions.dll
+[2026-07-01 22:32:46] 다운로드: Newtonsoft.Json.dll
+[2026-07-01 22:32:47] 다운로드 완료: Newtonsoft.Json.dll
+[2026-07-01 22:32:47] 다운로드: resources.pak
+[2026-07-01 22:32:48] 다운로드 완료: resources.pak
+[2026-07-01 22:32:48] 다운로드: runtimes\win\lib\net7.0\System.Management.dll
+[2026-07-01 22:32:48] 다운로드 완료: runtimes\win\lib\net7.0\System.Management.dll
+[2026-07-01 22:32:48] 다운로드: runtimes\win\lib\net9.0\System.Text.Encodings.Web.dll
+[2026-07-01 22:32:48] 다운로드 완료: runtimes\win\lib\net9.0\System.Text.Encodings.Web.dll
+[2026-07-01 22:32:48] 다운로드: selenium-manager.exe
+[2026-07-01 22:32:48] 다운로드 완료: selenium-manager.exe
+[2026-07-01 22:32:48] 다운로드: Selenium.Support.dll
+[2026-07-01 22:32:48] 다운로드 완료: Selenium.Support.dll
+[2026-07-01 22:32:48] 다운로드: Selenium.WebDriver.dll
+[2026-07-01 22:32:49] 다운로드 완료: Selenium.WebDriver.dll
+[2026-07-01 22:32:49] 다운로드: SQLitePCLRaw.batteries_v2.dll
+[2026-07-01 22:32:49] 다운로드 완료: SQLitePCLRaw.batteries_v2.dll
+[2026-07-01 22:32:49] 다운로드: SQLitePCLRaw.core.dll
+[2026-07-01 22:32:49] 다운로드 완료: SQLitePCLRaw.core.dll
+[2026-07-01 22:32:49] 다운로드: SQLitePCLRaw.provider.e_sqlite3.dll
+[2026-07-01 22:32:50] 다운로드 완료: SQLitePCLRaw.provider.e_sqlite3.dll
+[2026-07-01 22:32:50] 다운로드: System.IO.Pipelines.dll
+[2026-07-01 22:32:50] 다운로드 완료: System.IO.Pipelines.dll
+[2026-07-01 22:32:50] 다운로드: System.Management.dll
+[2026-07-01 22:32:50] 다운로드 완료: System.Management.dll
+[2026-07-01 22:32:50] 다운로드: System.Text.Encodings.Web.dll
+[2026-07-01 22:32:50] 다운로드 완료: System.Text.Encodings.Web.dll
+[2026-07-01 22:32:50] 다운로드: System.Text.Json.dll
+[2026-07-01 22:32:51] 다운로드 완료: System.Text.Json.dll
+[2026-07-01 22:32:51] 다운로드: v8_context_snapshot.bin
+[2026-07-01 22:32:51] 다운로드 완료: v8_context_snapshot.bin
+[2026-07-01 22:32:51] 다운로드: vk_swiftshader.dll
+[2026-07-01 22:32:51] 다운로드 완료: vk_swiftshader.dll
+[2026-07-01 22:32:51] 다운로드: vk_swiftshader_icd.json
+[2026-07-01 22:32:51] 다운로드 완료: vk_swiftshader_icd.json
+[2026-07-01 22:32:51] 다운로드: vulkan-1.dll
+[2026-07-01 22:32:52] 다운로드 완료: vulkan-1.dll
+[2026-07-01 22:32:52] 상태 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:32:52] 완료: 다운로드 43개, 건너뜀 0개, 병합 1개
+[2026-07-01 22:32:52] 로컬 updatelist 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:32:52] 완료: 다운로드 43개, 건너뜀 0개, 병합 1개
+[2026-07-01 22:32:52] 프로그램 실행: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\InstaManager.App.exe 1
+[2026-07-01 22:33:23] Config: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\auto-updater-config.json
+[2026-07-01 22:33:23] 서버: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:33:23] 대상: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows
+[2026-07-01 22:33:23] 서버 updatelist와 로컬 updatelist를 비교하고 변경/추가 파일만 다운로드합니다.
+[2026-07-01 22:33:23] updatelist.txt 다운로드: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:33:23] updatelist.txt 항목 43개를 확인했습니다.
+[2026-07-01 22:33:23] 건너뜀: libcef.dll
+[2026-07-01 22:33:23] 건너뜀: CefSharp.Core.dll
+[2026-07-01 22:33:23] 건너뜀: CefSharp.Core.Runtime.dll
+[2026-07-01 22:33:23] 건너뜀: CefSharp.dll
+[2026-07-01 22:33:23] 건너뜀: CefSharp.WinForms.dll
+[2026-07-01 22:33:23] 건너뜀: chrome_100_percent.pak
+[2026-07-01 22:33:23] 건너뜀: chrome_200_percent.pak
+[2026-07-01 22:33:23] 건너뜀: chrome_elf.dll
+[2026-07-01 22:33:23] 건너뜀: d3dcompiler_47.dll
+[2026-07-01 22:33:23] 건너뜀: dxcompiler.dll
+[2026-07-01 22:33:23] 건너뜀: dxil.dll
+[2026-07-01 22:33:23] 건너뜀: e_sqlite3.dll
+[2026-07-01 22:33:23] 건너뜀: Google.Apis.Auth.dll
+[2026-07-01 22:33:23] 건너뜀: Google.Apis.Core.dll
+[2026-07-01 22:33:23] 건너뜀: Google.Apis.dll
+[2026-07-01 22:33:23] 건너뜀: Google.GenAI.dll
+[2026-07-01 22:33:23] 건너뜀: HtmlAgilityPack.dll
+[2026-07-01 22:33:23] 건너뜀: icudtl.dat
+[2026-07-01 22:33:23] 건너뜀: Ijwhost.dll
+[2026-07-01 22:33:23] 건너뜀: libEGL.dll
+[2026-07-01 22:33:23] 건너뜀: libGLESv2.dll
+[2026-07-01 22:33:23] 건너뜀: Microsoft.Data.Sqlite.dll
+[2026-07-01 22:33:23] 건너뜀: Microsoft.Extensions.AI.Abstractions.dll
+[2026-07-01 22:33:23] 건너뜀: Newtonsoft.Json.dll
+[2026-07-01 22:33:23] 건너뜀: resources.pak
+[2026-07-01 22:33:23] 건너뜀: runtimes\win\lib\net7.0\System.Management.dll
+[2026-07-01 22:33:23] 건너뜀: runtimes\win\lib\net9.0\System.Text.Encodings.Web.dll
+[2026-07-01 22:33:23] 건너뜀: selenium-manager.exe
+[2026-07-01 22:33:23] 건너뜀: Selenium.Support.dll
+[2026-07-01 22:33:23] 건너뜀: Selenium.WebDriver.dll
+[2026-07-01 22:33:23] 건너뜀: SQLitePCLRaw.batteries_v2.dll
+[2026-07-01 22:33:23] 건너뜀: SQLitePCLRaw.core.dll
+[2026-07-01 22:33:23] 건너뜀: SQLitePCLRaw.provider.e_sqlite3.dll
+[2026-07-01 22:33:23] 건너뜀: System.IO.Pipelines.dll
+[2026-07-01 22:33:23] 건너뜀: System.Management.dll
+[2026-07-01 22:33:23] 건너뜀: System.Text.Encodings.Web.dll
+[2026-07-01 22:33:23] 건너뜀: System.Text.Json.dll
+[2026-07-01 22:33:23] 건너뜀: v8_context_snapshot.bin
+[2026-07-01 22:33:23] 건너뜀: vk_swiftshader.dll
+[2026-07-01 22:33:23] 건너뜀: vk_swiftshader_icd.json
+[2026-07-01 22:33:23] 건너뜀: vulkan-1.dll
+[2026-07-01 22:33:23] 상태 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:33:23] 완료: 다운로드 0개, 건너뜀 41개, 병합 0개
+[2026-07-01 22:33:23] 로컬 updatelist 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:33:23] 완료: 다운로드 0개, 건너뜀 41개, 병합 0개
+[2026-07-01 22:33:23] 프로그램 실행: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\InstaManager.App.exe 1
+[2026-07-01 22:34:51] Config: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\auto-updater-config.json
+[2026-07-01 22:34:51] 서버: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:34:51] 대상: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows
+[2026-07-01 22:34:51] 서버 updatelist와 로컬 updatelist를 비교하고 변경/추가 파일만 다운로드합니다.
+[2026-07-01 22:34:51] updatelist.txt 다운로드: https://neocode.cloud/Patch/InstaManager/updatelist.txt
+[2026-07-01 22:34:51] updatelist.txt 항목 43개를 확인했습니다.
+[2026-07-01 22:34:51] 건너뜀: libcef.dll
+[2026-07-01 22:34:51] 건너뜀: CefSharp.Core.dll
+[2026-07-01 22:34:51] 건너뜀: CefSharp.Core.Runtime.dll
+[2026-07-01 22:34:51] 건너뜀: CefSharp.dll
+[2026-07-01 22:34:51] 건너뜀: CefSharp.WinForms.dll
+[2026-07-01 22:34:51] 건너뜀: chrome_100_percent.pak
+[2026-07-01 22:34:51] 건너뜀: chrome_200_percent.pak
+[2026-07-01 22:34:51] 건너뜀: chrome_elf.dll
+[2026-07-01 22:34:51] 건너뜀: d3dcompiler_47.dll
+[2026-07-01 22:34:51] 건너뜀: dxcompiler.dll
+[2026-07-01 22:34:51] 건너뜀: dxil.dll
+[2026-07-01 22:34:51] 건너뜀: e_sqlite3.dll
+[2026-07-01 22:34:51] 건너뜀: Google.Apis.Auth.dll
+[2026-07-01 22:34:51] 건너뜀: Google.Apis.Core.dll
+[2026-07-01 22:34:51] 건너뜀: Google.Apis.dll
+[2026-07-01 22:34:51] 건너뜀: Google.GenAI.dll
+[2026-07-01 22:34:51] 건너뜀: HtmlAgilityPack.dll
+[2026-07-01 22:34:51] 건너뜀: icudtl.dat
+[2026-07-01 22:34:51] 건너뜀: Ijwhost.dll
+[2026-07-01 22:34:51] 건너뜀: libEGL.dll
+[2026-07-01 22:34:51] 건너뜀: libGLESv2.dll
+[2026-07-01 22:34:51] 건너뜀: Microsoft.Data.Sqlite.dll
+[2026-07-01 22:34:51] 건너뜀: Microsoft.Extensions.AI.Abstractions.dll
+[2026-07-01 22:34:51] 건너뜀: Newtonsoft.Json.dll
+[2026-07-01 22:34:51] 건너뜀: resources.pak
+[2026-07-01 22:34:51] 건너뜀: runtimes\win\lib\net7.0\System.Management.dll
+[2026-07-01 22:34:51] 건너뜀: runtimes\win\lib\net9.0\System.Text.Encodings.Web.dll
+[2026-07-01 22:34:51] 건너뜀: selenium-manager.exe
+[2026-07-01 22:34:51] 건너뜀: Selenium.Support.dll
+[2026-07-01 22:34:51] 건너뜀: Selenium.WebDriver.dll
+[2026-07-01 22:34:51] 건너뜀: SQLitePCLRaw.batteries_v2.dll
+[2026-07-01 22:34:51] 건너뜀: SQLitePCLRaw.core.dll
+[2026-07-01 22:34:51] 건너뜀: SQLitePCLRaw.provider.e_sqlite3.dll
+[2026-07-01 22:34:51] 건너뜀: System.IO.Pipelines.dll
+[2026-07-01 22:34:51] 건너뜀: System.Management.dll
+[2026-07-01 22:34:51] 건너뜀: System.Text.Encodings.Web.dll
+[2026-07-01 22:34:51] 건너뜀: System.Text.Json.dll
+[2026-07-01 22:34:51] 건너뜀: v8_context_snapshot.bin
+[2026-07-01 22:34:51] 건너뜀: vk_swiftshader.dll
+[2026-07-01 22:34:51] 건너뜀: vk_swiftshader_icd.json
+[2026-07-01 22:34:51] 건너뜀: vulkan-1.dll
+[2026-07-01 22:34:51] 상태 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:34:51] 완료: 다운로드 0개, 건너뜀 41개, 병합 0개
+[2026-07-01 22:34:51] 로컬 updatelist 저장: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\updatelist.txt
+[2026-07-01 22:34:51] 완료: 다운로드 0개, 건너뜀 41개, 병합 0개
+[2026-07-01 22:34:51] 프로그램 실행: D:\ai\codex\InstaManager\src\InstaManager.App\bin\x64\Release\net9.0-windows\InstaManager.App.exe 1

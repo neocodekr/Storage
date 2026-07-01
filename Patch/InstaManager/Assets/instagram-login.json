@@ -1,0 +1,5 @@
+{
+  "appId": "994403979886734",
+  "appSecret": "749cc0c712af3a6247707bbc8d64d9c4",
+  "redirectUri": "http://localhost:5115/instagram/oauth/"
+}
