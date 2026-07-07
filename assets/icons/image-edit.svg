@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Image edit icon">
+  <defs>
+    <linearGradient id="bg" x1="28" y1="28" x2="228" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38b0ec"/>
+      <stop offset="1" stop-color="#1655a8"/>
+    </linearGradient>
+    <linearGradient id="pen" x1="144" y1="96" x2="214" y2="166" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d8f3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <rect x="48" y="58" width="132" height="120" rx="20" fill="#ffffff" opacity=".94"/>
+  <path d="M64 156l34-38 24 27 18-20 28 31H64z" fill="#29abe2"/>
+  <circle cx="88" cy="88" r="15" fill="#fbbc04"/>
+  <path d="M156 154l52-52 22 22-52 52-30 8 8-30z" fill="url(#pen)"/>
+  <path d="M202 96l8-8c6-6 15-6 21 0l1 1c6 6 6 15 0 21l-8 8-22-22z" fill="#14b8a6"/>
+  <path d="M156 154l22 22-30 8 8-30z" fill="#172033" opacity=".22"/>
+</svg>

@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "NEOCODE — 비즈니스를 잇는 코드",
-    "description": "NEOCODE는 Apps, Tools, Games를 기획하고 개발하는 소프트웨어 전문 개발 업체입니다."
+    "description": "NEOCODE는 Apps, Games와 디지털 제품을 기획하고 개발하는 소프트웨어 전문 개발 업체입니다."
   },
   "nav": {
     "serviceLabel": "Service",
@@ -25,10 +25,6 @@
         "href": "#services"
       },
       {
-        "label": "Tools",
-        "href": "#tools"
-      },
-      {
         "label": "Games",
         "href": "#games"
       }
@@ -46,7 +42,7 @@
     "eyebrow": "비즈니스를 잇는 코드, Neocode",
     "title": "일상은 더 편리하게,",
     "highlight": "비즈니스는 더 똑똑하게.",
-    "lead": "NEOCODE는 사람들의 하루를 바꾸는 Apps, 기업의 일을 자동화하는 Tools, 몰입감 있는 Games를 함께 만듭니다. 아이디어를 안정적인 제품으로 완성합니다.",
+    "lead": "NEOCODE는 사람들의 하루를 바꾸는 Apps와 몰입감 있는 Games를 함께 만듭니다. 아이디어를 기획부터 출시까지 안정적인 제품으로 완성합니다.",
     "actions": [
       {
         "label": "Service 둘러보기 →",
@@ -54,8 +50,8 @@
         "style": "primary"
       },
       {
-        "label": "Tools 알아보기",
-        "href": "#tools",
+        "label": "제작 과정 보기",
+        "href": "#process",
         "style": "ghost"
       }
     ],
@@ -74,7 +70,7 @@
       }
     ],
     "platformTitle": "Neocode Platform",
-    "platformDescription": "Apps, Tools, Games를 하나의 제품 전략으로 설계하고 운영합니다.",
+    "platformDescription": "Apps와 Games를 하나의 제품 전략으로 설계하고 운영합니다.",
     "badges": [
       {
         "icon": "★",
@@ -83,19 +79,12 @@
       },
       {
         "icon": "⚙",
-        "title": "Tools",
-        "value": "업무 자동화"
+        "title": "Process",
+        "value": "기획부터 출시"
       }
     ],
-    "trustTitle": "다양한 산업의 파트너와 함께합니다",
-    "trustLogos": [
-      "FINTECH",
-      "COMMERCE",
-      "HEALTHCARE",
-      "LOGISTICS",
-      "EDU",
-      "MANUFACTURE"
-    ]
+    "trustTitle": "",
+    "trustLogos": []
   },
   "sections": {
     "apps": {
@@ -115,7 +104,8 @@
               "label": "Web",
               "url": "https://neocode.cloud/image-resizer/"
             }
-          ]
+          ],
+          "iconUrl": "assets/icons/image-edit.svg"
         },
         {
           "icon": "💳",
@@ -130,7 +120,8 @@
               "url": "https://play.google.com/store/apps/details?id=com.neocode.fakegps"
             }
           ],
-          "featured": true
+          "featured": true,
+          "iconUrl": "https://play-lh.googleusercontent.com/cxs5AsrwB-n0CTTVhfqTKAJVBIq5D6J_Aaopit3PbR_iYCAfriojqwTRKsNh_-oceaBV9I4GsSwR2KJE3pTQvQ=s256-rw"
         },
         {
           "icon": "🎯",
@@ -144,7 +135,8 @@
               "label": "Android",
               "url": "https://play.google.com/store/apps/details?id=com.neocode.safetydelete&hl=ko"
             }
-          ]
+          ],
+          "iconUrl": "https://play-lh.googleusercontent.com/aSu9iXxSg-15HC_-AQk7lr6HwT4FKImoV6jCI115I8NTNqIoLgcDxsfpayMN33jiktGlg-zoOFLJlGr9K2yT=s256-rw"
         },
         {
           "icon": "🌐",
@@ -159,7 +151,8 @@
               "label": "Android",
               "url": "https://play.google.com/store/apps/details?id=com.neocode.pushcapture&hl=ko"
             }
-          ]
+          ],
+          "iconUrl": "https://play-lh.googleusercontent.com/p6Gn_0B-arz8eRLdmoh_YBIpKqLCQiMWGjWOhPGTgfl1MxZrhGfVkOiqbcD12mfrNp_fsXs74sYcb6kzX_s-94A=s256-rw"
         },
         {
           "icon": "📚",
@@ -173,7 +166,8 @@
               "label": "Android",
               "url": "https://play.google.com/store/apps/details?id=com.neocode.slientcamera&hl=ko"
             }
-          ]
+          ],
+          "iconUrl": "https://play-lh.googleusercontent.com/_EhJh7AVheeAskg6UinHXkmsp-4wle3xzzuI2kOdWCJ07blYZcH4M4Tdnaw7hfodDA0KOwHOdGDtsFeRAIfO8Ng=s256-rw"
         }
       ]
     },
@@ -287,9 +281,64 @@
       "cards": [],
       "emptyState": {
         "label": "COMING SOON",
-        "title": "Games ?? ????",
-        "description": "?? ??? Games? ????. ?? ??? ???? ? ??? ?????."
+        "title": "",
+        "description": ""
       }
+    },
+    "process": {
+      "tag": "Process",
+      "title": "아이디어에서 출시까지 이어지는 제작 프로세스",
+      "description": "상담, 설계, 개발, 검수, 출시 후 운영까지 필요한 단계를 하나의 흐름으로 관리합니다.",
+      "cards": [
+        {
+          "icon": "01",
+          "title": "상담 및 요구사항 정리",
+          "description": "목표, 예산, 일정, 핵심 기능을 정리해 현실적인 제작 범위를 확정합니다.",
+          "chips": [
+            "요구사항",
+            "일정",
+            "견적"
+          ],
+          "ctaLabel": "",
+          "href": ""
+        },
+        {
+          "icon": "02",
+          "title": "기획 및 화면 설계",
+          "description": "사용자 흐름, 주요 화면, 데이터 구조를 먼저 설계해 개발 중 변경 비용을 줄입니다.",
+          "chips": [
+            "UX 흐름",
+            "화면 설계",
+            "데이터 구조"
+          ],
+          "ctaLabel": "",
+          "href": ""
+        },
+        {
+          "icon": "03",
+          "title": "개발 및 중간 검수",
+          "description": "기능 단위로 구현 결과를 공유하고, 실제 사용 흐름 기준으로 빠르게 조정합니다.",
+          "chips": [
+            "기능 개발",
+            "중간 공유",
+            "품질 점검"
+          ],
+          "ctaLabel": "",
+          "href": ""
+        },
+        {
+          "icon": "04",
+          "title": "출시 및 운영 지원",
+          "description": "스토어 등록, 배포, 오류 대응, 개선 요청까지 출시 이후 단계도 함께 관리합니다.",
+          "chips": [
+            "배포",
+            "스토어 등록",
+            "운영 개선"
+          ],
+          "ctaLabel": "",
+          "href": ""
+        }
+      ]
     }
   },
   "about": {
@@ -322,25 +371,21 @@
   "contact": {
     "email": "admin@neocode.co.kr",
     "title": "당신의 다음 제품, NEOCODE와 시작하세요",
-    "description": "Apps, Tools, Games 제작까지. 무엇이든 편하게 문의 주세요. 영업일 기준 1일 내에 답변드립니다.",
+    "description": "Apps, Games, 웹 서비스 제작까지. 무엇이든 편하게 문의 주세요. 영업일 기준 1일 내에 답변드립니다.",
     "buttonLabel": "문의하기",
     "modalTitle": "문의하기",
-    "modalIntro": "입력한 내용은 메일 앱을 통해 admin@neocode.co.kr으로 전송됩니다.",
+    "modalIntro": "입력한 내용은 메일 앱을 통해 admin@neocode.co.kr로 전송됩니다.",
     "modalNote": "브라우저 보안상 사이트에서 메일을 직접 자동 발송하지 않고, 사용자의 기본 메일 앱을 엽니다."
   },
   "footer": {
-    "brandDescription": "Neocode는 고도의 소프트웨어 기술력을 바탕으로 사용자의 디지털 일상을 안전하고 편리하게 혁신하는 모바일 앱 및 게임 개발 전문 기업입니다.\n네오코드 사업자번호 : 244-29-01059 D-U-N-S : 963437563 통신판매업신고번호 : 제2025-서울구로-0315호 대표: 박은성 \n서울시 구로구 경인로20나길 36 702호 / 고객센터: 010-8674-1663",
+    "brandDescription": "네오코드 사업자번호 : 244-29-01059 D-U-N-S : 963437563 통신판매업신고번호 : 제2025-서울구로-0315호 대표: 박은성\n서울시 구로구 경인로20나길 36 702호 / 고객센터: 010-8674-1663",
     "columns": [
       {
-        "title": "Service",
+        "title": "Services",
         "links": [
           {
             "label": "Apps",
             "href": "#services"
-          },
-          {
-            "label": "Tools",
-            "href": "#tools"
           },
           {
             "label": "Games",
@@ -352,11 +397,11 @@
         "title": "대표 카테고리",
         "links": [
           {
-            "label": "Fake Gps",
+            "label": "System Trading",
             "href": "#services"
           },
           {
-            "label": "NEO Flow",
+            "label": "Mobile App",
             "href": "#tools"
           },
           {
@@ -364,7 +409,7 @@
             "href": "#games"
           },
           {
-            "label": "Live Ops",
+            "label": "Windows App",
             "href": "#games"
           }
         ]
@@ -391,23 +436,27 @@
         ]
       }
     ],
-    "copyright": "© 2026 NEOCODE Inc. All rights reserved.",
+    "copyright": "Copyright © 2026 Neocode. All Rights Reserved.",
     "social": [
       {
-        "label": "GitHub",
-        "text": "GH",
+        "label": "Telegram",
+        "text": "Telegram",
+        "icon": "telegram",
         "href": "#"
       },
       {
-        "label": "LinkedIn",
-        "text": "in",
-        "href": "#"
+        "label": "Discord",
+        "text": "Discord",
+        "icon": "discord",
+        "href": "https://discord.gg/aJraXhg5V"
       },
       {
-        "label": "Mail",
-        "text": "@",
-        "href": "mailto:neocode.helpdesk@gmail.com"
+        "label": "KakaoTalk",
+        "text": "KakaoTalk",
+        "icon": "kakao",
+        "href": "#"
       }
-    ]
+    ],
+    "logoUrl": "https://neocode.cloud/neocode_logo.png"
   }
 }
