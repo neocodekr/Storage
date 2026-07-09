@@ -62,6 +62,16 @@ th {
 h1 {
   margin-top:40px;
 }
+.highlight {
+  background:#fff8e1;
+  padding:14px;
+  border-left:4px solid #f0b400;
+  margin:16px 0;
+}
+.small {
+  font-size:0.95em;
+  color:#444;
+}
 </style>
 </head>
 <body>
@@ -82,15 +92,17 @@ h1 {
     본 개인정보처리방침은 서비스 이용과 관련하여
     회사가 개인정보를 어떻게 수집, 이용, 보관, 파기하는지 안내합니다.
   </p>
-<p><strong>시행일자:</strong> 2026년 05월 26일</p>
+<p><strong>시행일자:</strong> 2026년 07월 09일</p>
 <h2>1. 개인정보의 처리 목적</h2>
 <p>회사는 다음의 목적을 위해 개인정보를 처리합니다.</p>
 <ul>
 <li>회원가입 및 이용자 관리</li>
 <li>모바일 앱 서비스 제공</li>
+<li>관심 종목, 알림 설정, 푸시 알림 등 앱 핵심 기능 제공</li>
 <li>고객 문의 및 민원 처리</li>
 <li>결제 및 환불 처리</li>
-<li>서비스 개선 및 오류 분석</li>
+<li>서비스 개선, 앱 안정성 확보 및 오류·크래시 분석</li>
+<li>광고 제공, 광고 성과 측정 및 부정 광고 트래픽 방지</li>
 <li>이벤트 및 마케팅 정보 제공</li>
 <li>부정 이용 방지 및 보안 관리</li>
 </ul>
@@ -116,8 +128,18 @@ h1 {
 </tr>
 <tr>
 <td>서비스 이용</td>
-<td>접속 일시, IP 주소, 기기 정보, OS 정보, 앱 버전, 이용 기록</td>
-<td>서비스 제공, 오류 분석, 보안 관리</td>
+<td>접속 일시, IP 주소, 기기 정보, OS 정보, 앱 버전, 이용 기록, 관심 종목, 알림 설정</td>
+<td>서비스 제공, 앱 기능 제공, 오류 분석, 보안 관리</td>
+</tr>
+<tr>
+<td>푸시 알림</td>
+<td>Firebase Cloud Messaging(FCM) 토큰, 기기 식별값, OS/platform, 앱 패키지명, 알림 수신 설정</td>
+<td>관심 종목 및 서비스 알림 발송, 알림 설정 관리</td>
+</tr>
+<tr>
+<td>앱 진단 및 오류 분석</td>
+<td>Firebase Crashlytics를 통해 수집되는 크래시 로그, 기기 상태, OS 정보, 앱 버전, 오류 발생 시점의 진단 정보</td>
+<td>앱 장애 분석, 안정성 개선, 오류 재현 및 수정</td>
 </tr>
 <tr>
 <td>결제</td>
@@ -131,11 +153,58 @@ h1 {
 </tr>
 <tr>
 <td>광고 및 분석</td>
-<td>광고식별자, 앱 이용 기록, 기기 정보</td>
-<td>맞춤형 광고, 광고 성과 분석, 서비스 개선</td>
+<td>광고식별자(IDFA/AAID 등, 사용 가능한 경우), 광고 노출·클릭·상호작용 정보, 기기 정보, 앱 이용 기록, 광고 진단 데이터</td>
+<td>광고 제공, 광고 성과 측정, 부정 트래픽 방지, 서비스 개선</td>
 </tr>
 </tbody>
 </table>
+<h2>2-1. 모바일 앱, SDK 및 App Privacy 관련 수집 항목</h2>
+<p>
+  회사는 앱 기능 제공, 푸시 알림, 장애 분석, 광고 제공을 위해 다음과 같은 모바일 앱 관련 정보를 처리할 수 있습니다.
+  실제 수집 항목은 이용자의 기기 설정, 권한 허용 여부, 앱 사용 방식, 운영체제 정책에 따라 달라질 수 있습니다.
+</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>수집 또는 처리될 수 있는 정보</th>
+<th>사용 목적</th>
+<th>관련 제3자 SDK/서비스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifiers</td>
+<td>기기 식별값, 푸시 토큰, 광고식별자(IDFA 등, 허용된 경우)</td>
+<td>앱 기능 제공, 푸시 알림, 광고 제공 및 측정</td>
+<td>Firebase Messaging, Google AdMob, Unity Ads</td>
+</tr>
+<tr>
+<td>Diagnostics</td>
+<td>크래시 데이터, 성능 데이터, 오류 로그, 앱 버전, OS 정보</td>
+<td>장애 분석, 서비스 안정성 개선</td>
+<td>Firebase Crashlytics</td>
+</tr>
+<tr>
+<td>Usage Data</td>
+<td>앱 실행, 화면 조회, 광고 노출·클릭 등 제품 상호작용 또는 광고 관련 데이터</td>
+<td>서비스 개선, 광고 성과 측정, 부정 광고 트래픽 방지</td>
+<td>Google AdMob, Unity Ads, Firebase</td>
+</tr>
+<tr>
+<td>App Functionality Data</td>
+<td>관심 종목, 알림 키워드, 알림 수신 설정, 디바이스 토큰</td>
+<td>관심 종목 관리, 맞춤 알림 발송, 사용자 설정 유지</td>
+<td>회사 서버 API, Firebase Messaging</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight">
+  <strong>App Tracking Transparency(ATT) 관련 안내</strong><br/>
+  iOS에서 이용자가 “앱에 추적 금지 요청”을 선택한 경우에도 앱의 기본 기능은 계속 이용할 수 있습니다.
+  이 경우 회사는 IDFA를 이용한 추적, 맞춤형 추적 광고, 추적 목적의 쿠키 또는 마케팅 쿠키 수집을 수행하지 않습니다.
+  광고가 표시되는 경우에도 이용자를 다른 회사의 앱 또는 웹사이트에서 추적하기 위한 목적으로 사용하지 않는 일반 광고 또는 비개인화 광고 형태로 제공될 수 있습니다.
+</div>
 <h2>3. 개인정보의 보유 및 이용 기간</h2>
 <table>
 <thead>
@@ -165,21 +234,35 @@ h1 {
 <td>마케팅 수신 동의 정보</td>
 <td>동의 철회 또는 회원 탈퇴 시까지</td>
 </tr>
+<tr>
+<td>푸시 토큰 및 알림 설정</td>
+<td>앱 이용 기간, 알림 해제, 회원 탈퇴 또는 삭제 요청 시까지</td>
+</tr>
+<tr>
+<td>크래시·진단 로그</td>
+<td>서비스 안정성 분석에 필요한 합리적인 기간 동안 보관 후 삭제</td>
+</tr>
+<tr>
+<td>광고 및 분석 데이터</td>
+<td>각 광고·분석 SDK 제공자의 정책 및 관련 법령에 따른 기간 동안 보관</td>
+</tr>
 </tbody>
 </table>
 <h2>4. 개인정보의 제3자 제공</h2>
 <p>
-    회사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다.
-    다만, 다음의 경우에는 예외적으로 제공할 수 있습니다.
-  </p>
+  회사는 이용자의 개인정보를 판매하지 않으며, 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다.
+  다만, 다음의 경우에는 필요한 범위 내에서 개인정보를 제공하거나 처리할 수 있습니다.
+</p>
 <ul>
 <li>이용자가 사전에 동의한 경우</li>
 <li>법령에 특별한 규정이 있는 경우</li>
 <li>수사기관 또는 법원의 적법한 요청이 있는 경우</li>
+<li>앱 기능 제공, 장애 분석, 광고 제공 등 서비스 운영에 필요한 제3자 SDK 또는 수탁업체가 관련 정보를 처리하는 경우</li>
 </ul>
 <div class="notice">
-    현재 회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.
-  </div>
+  회사는 광고, 분석, 푸시 알림 및 크래시 분석을 위해 Google Firebase, Google AdMob, Unity Ads 등 제3자 SDK를 사용할 수 있습니다.
+  각 SDK는 해당 서비스 제공자의 개인정보 처리방침 및 설정에 따라 데이터를 처리할 수 있습니다.
+</div>
 <h2>5. 개인정보 처리업무의 위탁</h2>
 <p>회사는 서비스 제공을 위해 개인정보 처리업무를 외부 업체에 위탁할 수 있습니다.</p>
 <table>
@@ -191,20 +274,28 @@ h1 {
 </thead>
 <tbody>
 <tr>
-<td>[클라우드 업체명]</td>
-<td>서버 운영 및 데이터 보관</td>
+<td>Firebase Cloud Messaging</td>
+<td>푸시 알림 발송 및 디바이스 토큰 관리</td>
 </tr>
 <tr>
-<td>[결제대행사명]</td>
-<td>결제 및 환불 처리</td>
+<td>Firebase Crashlytics</td>
+<td>앱 크래시 및 성능 진단, 오류 분석</td>
 </tr>
 <tr>
-<td>[알림 발송 업체명]</td>
-<td>푸시 알림, 이메일, 문자 발송</td>
+<td>Google AdMob</td>
+<td>모바일 광고 제공, 광고 성과 측정, 부정 트래픽 방지</td>
 </tr>
 <tr>
-<td>[분석 도구명]</td>
-<td>서비스 이용 분석 및 오류 분석</td>
+<td>Unity Ads</td>
+<td>모바일 광고 제공, 광고 성과 측정, 부정 트래픽 방지</td>
+</tr>
+<tr>
+<td>회사 서버 및 클라우드 인프라</td>
+<td>관심 종목, 알림 설정, 디바이스 토큰 등 앱 기능 제공을 위한 데이터 처리 및 보관</td>
+</tr>
+<tr>
+<td>결제대행사</td>
+<td>유료 서비스 또는 인앱 결제가 제공되는 경우 결제 및 환불 처리</td>
 </tr>
 </tbody>
 </table>
@@ -225,11 +316,18 @@ h1 {
 </thead>
 <tbody>
 <tr>
-<td>[예: Google LLC]</td>
-<td>[예: 미국]</td>
-<td>기기 정보, 이용 기록, 오류 로그</td>
-<td>앱 분석 및 오류 분석</td>
-<td>서비스 이용 기간 또는 계약 종료 시까지</td>
+<td>Google LLC</td>
+<td>미국 등 Google 서비스 제공 국가</td>
+<td>기기 정보, 푸시 토큰, 광고 관련 데이터, 이용 기록, 오류 로그, 크래시 데이터</td>
+<td>Firebase Messaging, Crashlytics, AdMob을 통한 푸시 알림, 오류 분석, 광고 제공</td>
+<td>서비스 이용 기간, 이용자 삭제 요청 시 또는 제공자 정책에 따른 기간까지</td>
+</tr>
+<tr>
+<td>Unity Technologies 및 그 계열사</td>
+<td>미국 등 Unity 서비스 제공 국가</td>
+<td>광고식별자, 기기 정보, 광고 노출·클릭 등 광고 관련 데이터</td>
+<td>Unity Ads를 통한 광고 제공, 광고 성과 측정, 부정 트래픽 방지</td>
+<td>서비스 이용 기간, 이용자 삭제 요청 시 또는 제공자 정책에 따른 기간까지</td>
 </tr>
 </tbody>
 </table>
@@ -253,8 +351,14 @@ h1 {
 <li>회원 탈퇴</li>
 </ul>
 <p>
-    권리 행사는 앱 내 설정, 고객센터 또는 이메일을 통해 요청할 수 있습니다.
-  </p>
+  권리 행사는 앱 내 설정, 고객센터 또는 이메일을 통해 요청할 수 있습니다.
+  계정 삭제 기능이 제공되는 경우 이용자는 앱 내 계정 삭제 메뉴를 통해 직접 삭제할 수 있으며,
+  앱 내 삭제 기능을 이용하기 어려운 경우 개인정보 보호책임자 이메일로 삭제를 요청할 수 있습니다.
+</p>
+<p class="small">
+  삭제 요청 시 확인을 위해 앱 이름, 사용 중인 이메일 또는 문의 가능한 연락처, 요청 내용을 함께 보내주시기 바랍니다.
+  회사는 본인 확인 및 법령상 보관 의무가 있는 정보를 제외하고 합리적인 기간 내 삭제 조치를 진행합니다.
+</p>
 <h2>9. 개인정보의 안전성 확보조치</h2>
 <p>회사는 개인정보 보호를 위해 다음 조치를 시행합니다.</p>
 <ul>
@@ -266,21 +370,36 @@ h1 {
 </ul>
 <h2>10. 개인정보 자동 수집 장치</h2>
 <p>
-    회사는 서비스 개선, 이용 분석, 맞춤형 광고 제공을 위해 쿠키,
-    광고식별자, SDK 등 자동 수집 기술을 사용할 수 있습니다.
-  </p>
+  회사는 서비스 제공, 앱 안정성 개선, 오류 분석, 광고 제공 및 광고 성과 측정을 위해 쿠키,
+  광고식별자, SDK 등 자동 수집 기술을 사용할 수 있습니다.
+</p>
 <p>
-    이용자는 기기 설정을 통해 광고식별자 사용 또는 맞춤형 광고를 제한할 수 있습니다.
-  </p>
+  이용자는 기기 설정을 통해 광고식별자 사용 또는 맞춤형 광고를 제한할 수 있으며,
+  iOS 이용자의 경우 App Tracking Transparency 권한 요청에서 추적 허용 여부를 선택할 수 있습니다.
+</p>
+<h2>10-1. 쿠키, 광고식별자 및 ATT 거부 시 처리</h2>
+<p>
+  앱 내 웹 콘텐츠는 서비스 제공, 보안, 오류 확인 등 필수 목적의 쿠키를 사용할 수 있습니다.
+  필수 쿠키는 로그인 상태 유지, 보안, 서비스 제공 등 앱 기능 제공을 위해 사용되며,
+  이용자를 다른 회사의 앱 또는 웹사이트에서 추적하기 위한 목적으로 사용하지 않습니다.
+</p>
+<p>
+  이용자가 iOS의 App Tracking Transparency 권한 요청에서 “앱에 추적 금지 요청”을 선택한 경우,
+  회사는 IDFA를 이용한 추적, 맞춤형 추적 광고, 추적 목적의 쿠키, 마케팅 쿠키, 제3자 추적 스크립트를 수집하거나 로드하지 않습니다.
+  다만 앱 이용은 계속 가능하며, 광고가 표시되는 경우 일반 광고 또는 비개인화 광고가 표시될 수 있습니다.
+</p>
+<p>
+  이용자가 추적을 허용한 경우에 한하여, 광고 성과 측정 및 맞춤형 광고 제공을 위해 광고식별자 또는 광고 관련 데이터가 사용될 수 있습니다.
+</p>
 <h2>11. 푸시 알림 및 광고성 정보</h2>
 <p>
-    회사는 서비스 안내, 공지사항, 이벤트, 마케팅 정보를 앱 푸시 알림,
-    이메일, 문자메시지 등으로 발송할 수 있습니다.
-  </p>
+  회사는 관심 종목 알림, 주요 공지, 서비스 안내 등을 제공하기 위해 Firebase Cloud Messaging을 통해 푸시 알림을 발송할 수 있습니다.
+  이를 위해 FCM 토큰, 기기 정보, 앱 패키지명, 알림 설정 정보가 처리될 수 있습니다.
+</p>
 <p>
-    광고성 정보는 이용자가 사전에 동의한 경우에만 발송하며,
-    이용자는 언제든지 수신 동의를 철회할 수 있습니다.
-  </p>
+  이벤트 또는 마케팅 정보는 이용자가 사전에 동의한 경우에만 발송하며,
+  이용자는 앱 설정, 기기 알림 설정 또는 고객센터를 통해 언제든지 수신 동의를 철회할 수 있습니다.
+</p>
 <h2>12. 개인정보 보호책임자</h2>
 <table>
 <tbody>
@@ -315,8 +434,8 @@ h1 {
     변경 사항은 앱 내 공지사항 또는 웹사이트를 통해 안내합니다.
   </p>
 <p>
-<strong>공고일자:</strong> 2026년 05월 26일<br/>
-<strong>시행일자:</strong> 2026년 05월 26일
+<strong>공고일자:</strong> 2026년 07월 09일<br/>
+<strong>시행일자:</strong> 2026년 07월 09일
   </p>
 
 </div>
@@ -333,16 +452,18 @@ h1 {
     disclose, and protect your information when you use our services.
   </p>
 <p>
-<strong>Effective Date:</strong> May 26, 2026
+<strong>Effective Date:</strong> July 9, 2026
   </p>
 <h2>1. Purpose of Processing Personal Information</h2>
 <p>We process personal information for the following purposes:</p>
 <ul>
 <li>User registration and account management</li>
 <li>Providing mobile application services</li>
+<li>Providing core app features such as watchlists, notification settings, and push notifications</li>
 <li>Customer support and inquiry handling</li>
 <li>Payment and refund processing</li>
-<li>Service improvement and analytics</li>
+<li>Service improvement, app stability, crash diagnostics, and error analysis</li>
+<li>Ad delivery, ad measurement, and prevention of invalid advertising traffic</li>
 <li>Marketing and promotional communications</li>
 <li>Fraud prevention and security management</li>
 </ul>
@@ -370,9 +491,19 @@ h1 {
 <td>Service Usage</td>
 <td>
           IP address, device information, OS version,
-          app version, usage logs, access records
+          app version, usage logs, access records, watchlist items, notification settings
         </td>
-<td>Service operation, analytics, and security</td>
+<td>Service operation, app functionality, analytics, and security</td>
+</tr>
+<tr>
+<td>Push Notifications</td>
+<td>Firebase Cloud Messaging (FCM) token, device identifier, OS/platform, app package name, notification settings</td>
+<td>Sending watchlist and service notifications, managing notification preferences</td>
+</tr>
+<tr>
+<td>App Diagnostics</td>
+<td>Crash logs, device status, OS information, app version, and diagnostic data collected through Firebase Crashlytics</td>
+<td>Crash analysis, app stability improvement, error reproduction and correction</td>
 </tr>
 <tr>
 <td>Payments</td>
@@ -389,11 +520,60 @@ h1 {
 </tr>
 <tr>
 <td>Advertising &amp; Analytics</td>
-<td>Advertising identifiers, usage records, device information</td>
-<td>Personalized advertising and analytics</td>
+<td>Advertising identifiers (such as IDFA/AAID where available), ad impressions, clicks, interactions, device information, usage records, and ad diagnostic data</td>
+<td>Ad delivery, ad measurement, prevention of invalid traffic, and service improvement</td>
 </tr>
 </tbody>
 </table>
+<h2>2-1. Mobile App Data, SDKs, and App Privacy Details</h2>
+<p>
+  We may process the following mobile app data to provide app functionality, push notifications,
+  crash diagnostics, and advertising. The actual data collected may vary depending on the user's device settings,
+  permission choices, app usage, and operating system policies.
+</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Data That May Be Collected or Processed</th>
+<th>Purpose</th>
+<th>Related Third-Party SDK/Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifiers</td>
+<td>Device identifiers, push tokens, advertising identifiers such as IDFA where permitted</td>
+<td>App functionality, push notifications, ad delivery and measurement</td>
+<td>Firebase Messaging, Google AdMob, Unity Ads</td>
+</tr>
+<tr>
+<td>Diagnostics</td>
+<td>Crash data, performance data, error logs, app version, OS information</td>
+<td>Crash analysis and app stability improvement</td>
+<td>Firebase Crashlytics</td>
+</tr>
+<tr>
+<td>Usage Data</td>
+<td>App launches, screen views, ad impressions, clicks, and other product or advertising interactions</td>
+<td>Service improvement, ad measurement, and prevention of invalid advertising traffic</td>
+<td>Google AdMob, Unity Ads, Firebase</td>
+</tr>
+<tr>
+<td>App Functionality Data</td>
+<td>Watchlist items, alert keywords, notification preferences, device tokens</td>
+<td>Watchlist management, customized notifications, and user preference management</td>
+<td>Company server API, Firebase Messaging</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight">
+  <strong>App Tracking Transparency (ATT)</strong><br/>
+  If an iOS user selects “Ask App Not to Track,” the user can still use the app's basic features.
+  In that case, we do not use the IDFA for tracking, do not provide personalized tracking-based ads,
+  and do not collect tracking cookies or marketing cookies for tracking purposes.
+  If ads are displayed, they may be general or non-personalized ads that are not used to track the user across other companies' apps or websites.
+</div>
 <h2>3. Retention Period of Personal Information</h2>
 <table>
 <thead>
@@ -423,21 +603,36 @@ h1 {
 <td>Marketing Consent Records</td>
 <td>Until consent withdrawal or account deletion</td>
 </tr>
+<tr>
+<td>Push Tokens and Notification Settings</td>
+<td>During app use, until notifications are disabled, account deletion, or deletion request</td>
+</tr>
+<tr>
+<td>Crash and Diagnostic Logs</td>
+<td>Retained for a reasonable period necessary for app stability analysis and then deleted</td>
+</tr>
+<tr>
+<td>Advertising and Analytics Data</td>
+<td>Retained according to the policies of each advertising or analytics SDK provider and applicable laws</td>
+</tr>
 </tbody>
 </table>
 <h2>4. Sharing Personal Information</h2>
 <p>
-    We do not provide personal information to third parties except in the following cases:
-  </p>
+  We do not sell users' personal information and generally do not provide personal information to third parties.
+  However, personal information may be provided or processed within the necessary scope in the following cases:
+</p>
 <ul>
 <li>When the user has provided prior consent</li>
 <li>When required by law or legal process</li>
 <li>When requested by authorized government authorities</li>
+<li>When third-party SDKs or service providers process information necessary for app functionality, crash diagnostics, analytics, advertising, or service operation</li>
 <li>When necessary to protect rights, safety, or property</li>
 </ul>
 <div class="notice">
-    Currently, we do not sell or share users' personal information with third parties.
-  </div>
+  We may use third-party SDKs such as Google Firebase, Google AdMob, and Unity Ads for advertising,
+  analytics, push notifications, and crash diagnostics. These SDKs may process data according to their own privacy policies and settings.
+</div>
 <h2>5. Outsourcing and Service Providers</h2>
 <p>
     We may use third-party service providers to operate and improve our services.
@@ -451,20 +646,28 @@ h1 {
 </thead>
 <tbody>
 <tr>
-<td>[Cloud Provider]</td>
-<td>Server hosting and data storage</td>
+<td>Firebase Cloud Messaging</td>
+<td>Push notification delivery and device token management</td>
 </tr>
 <tr>
-<td>[Payment Processor]</td>
-<td>Payment and refund processing</td>
+<td>Firebase Crashlytics</td>
+<td>App crash diagnostics, performance diagnostics, and error analysis</td>
 </tr>
 <tr>
-<td>[Notification Provider]</td>
-<td>Push notifications and emails</td>
+<td>Google AdMob</td>
+<td>Mobile ad delivery, ad measurement, and prevention of invalid traffic</td>
 </tr>
 <tr>
-<td>[Analytics Provider]</td>
-<td>Usage analytics and crash reporting</td>
+<td>Unity Ads</td>
+<td>Mobile ad delivery, ad measurement, and prevention of invalid traffic</td>
+</tr>
+<tr>
+<td>Company server and cloud infrastructure</td>
+<td>Processing and storing app functionality data such as watchlists, notification settings, and device tokens</td>
+</tr>
+<tr>
+<td>Payment processor</td>
+<td>Payment and refund processing if paid services or in-app purchases are provided</td>
 </tr>
 </tbody>
 </table>
@@ -484,9 +687,15 @@ h1 {
 <tbody>
 <tr>
 <td>Google LLC</td>
-<td>United States</td>
-<td>Device information, usage logs, crash logs</td>
-<td>Analytics and crash reporting</td>
+<td>United States and other countries where Google services are provided</td>
+<td>Device information, push tokens, advertising data, usage records, error logs, crash data</td>
+<td>Push notifications, crash diagnostics, analytics, and ad delivery through Firebase Messaging, Crashlytics, and AdMob</td>
+</tr>
+<tr>
+<td>Unity Technologies and its affiliates</td>
+<td>United States and other countries where Unity services are provided</td>
+<td>Advertising identifiers, device information, ad impressions, clicks, and other advertising data</td>
+<td>Ad delivery, ad measurement, and prevention of invalid traffic through Unity Ads</td>
 </tr>
 </tbody>
 </table>
@@ -510,9 +719,14 @@ h1 {
 <li>Delete account</li>
 </ul>
 <p>
-    Requests may be submitted through app settings,
-    customer support, or email.
-  </p>
+  Requests may be submitted through app settings, customer support, or email.
+  If account deletion is available, users may delete their account directly through the account deletion menu in the app.
+  If the in-app deletion feature is unavailable or difficult to use, users may request deletion by contacting the privacy contact email below.
+</p>
+<p class="small">
+  When submitting a deletion request, please include the app name, the email address or contact information used for the service,
+  and the details of your request. We will delete the relevant information within a reasonable period, except where verification or legal retention is required.
+</p>
 <h2>9. Security Measures</h2>
 <p>We implement appropriate technical and organizational measures to protect personal information.</p>
 <ul>
@@ -524,23 +738,38 @@ h1 {
 </ul>
 <h2>10. Cookies and Tracking Technologies</h2>
 <p>
-    We may use cookies, advertising identifiers,
-    SDKs, and similar technologies for analytics,
-    service improvement, and personalized advertising.
-  </p>
+  We may use cookies, advertising identifiers, SDKs, and similar technologies for service delivery,
+  app stability improvement, error analysis, ad delivery, and ad measurement.
+</p>
 <p>
-    Users may limit advertising tracking through device settings.
-  </p>
+  Users may limit the use of advertising identifiers or personalized advertising through device settings.
+  iOS users may also choose whether to allow tracking through the App Tracking Transparency prompt.
+</p>
+<h2>10-1. Cookies, Advertising Identifiers, and ATT Denial</h2>
+<p>
+  In-app web content may use essential cookies for service delivery, security, and error verification.
+  Essential cookies are used for app functionality such as maintaining login status, security, and service provision,
+  and are not used to track users across other companies' apps or websites.
+</p>
+<p>
+  If a user selects “Ask App Not to Track” in the iOS App Tracking Transparency prompt,
+  we do not use the IDFA for tracking, do not provide personalized tracking-based ads,
+  and do not collect or load tracking cookies, marketing cookies, or third-party tracking scripts for tracking purposes.
+  Users can still use the app, and if ads are displayed, they may be general or non-personalized ads.
+</p>
+<p>
+  If the user allows tracking, advertising identifiers or advertising-related data may be used for ad measurement and personalized ad delivery.
+</p>
 <h2>11. Push Notifications and Marketing Communications</h2>
 <p>
-    We may send push notifications, emails,
-    or messages regarding service updates,
-    events, promotions, and marketing information.
-  </p>
+  We may send push notifications through Firebase Cloud Messaging to provide watchlist alerts,
+  important notices, and service updates. For this purpose, FCM tokens, device information,
+  app package names, and notification settings may be processed.
+</p>
 <p>
-    Marketing communications are only sent
-    with user consent and may be withdrawn at any time.
-  </p>
+  Event or marketing communications are sent only with the user's prior consent.
+  Users may withdraw consent at any time through app settings, device notification settings, or customer support.
+</p>
 <h2>12. Privacy Contact Information</h2>
 <table>
 <tbody>
@@ -569,7 +798,7 @@ h1 {
   </p>
 <p>
 <strong>Announcement Date:</strong> May 26, 2026<br/>
-<strong>Effective Date:</strong> May 26, 2026
+<strong>Effective Date:</strong> July 9, 2026
   </p>
 
 </div>
