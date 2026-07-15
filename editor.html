@@ -9,9 +9,9 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
 />
-<link rel="stylesheet" href="assets/css/editor.css?v=20260613-2" />
+<link rel="stylesheet" href="assets/css/editor.css?v=20260707-1" />
 </head>
-<body>
+<body class="editor-locked">
   <header class="editor-header">
     <div>
       <strong>NEOCODE Editor</strong>
@@ -46,6 +46,19 @@
     저장되었습니다.
   </div>
 
-  <script type="module" src="assets/js/editor.js?v=20260613-2"></script>
+  <div class="editor-lock" id="editorLock" role="dialog" aria-modal="true" aria-labelledby="editorLockTitle">
+    <form class="editor-lock-box" id="editorLockForm">
+      <span class="lock-kicker">NEOCODE Editor</span>
+      <h1 id="editorLockTitle">비밀번호 입력</h1>
+      <label class="field">
+        <span>비밀번호</span>
+        <input id="editorPassword" type="password" autocomplete="current-password" autofocus />
+      </label>
+      <p class="lock-error" id="editorLockError" hidden>비밀번호가 올바르지 않습니다.</p>
+      <button class="save-button" type="submit">확인</button>
+    </form>
+  </div>
+
+  <script type="module" src="assets/js/editor.js?v=20260707-1"></script>
 </body>
 </html>
