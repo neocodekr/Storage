@@ -144,7 +144,7 @@
           "description": "스마트폰으로 들어오는 다양한 앱의 푸시 알림과 메시지를 자동으로 기록하고 보관해 주는 알림 관리 앱입니다. 상대방이 전송 후 바로 삭제한 메시지나 휘발성 알림의 내용을 놓치지 않고 나중에 다시 확인하고 싶을 때 유용하게 활용할 수 있습니다.",
           "ctaLabel": "서비스 체험하기",
           "href": "https://play.google.com/store/apps/details?id=com.neocode.pushcapture&hl=ko",
-          "featured": true,
+          "featured": false,
           "platforms": [
             {
               "type": "android",
@@ -168,6 +168,28 @@
             }
           ],
           "iconUrl": "https://play-lh.googleusercontent.com/_EhJh7AVheeAskg6UinHXkmsp-4wle3xzzuI2kOdWCJ07blYZcH4M4Tdnaw7hfodDA0KOwHOdGDtsFeRAIfO8Ng=s256-rw"
+        },
+        {
+          "icon": "✨",
+          "title": "시그널K - 주식 캔들분석·테마·속보",
+          "description": "설명을 입력하세요.주식 종목 속보는 관심 있는 종목의 뉴스와 공시 정보는 물론, 캔들차트 분석과 월별·일별 테마 순위 달력까지 한곳에서 확인할 수 있는 주식 정보 앱입니다.",
+          "chips": [],
+          "platforms": [
+            {
+              "type": "ios",
+              "label": "iOS",
+              "url": "https://apps.apple.com/kr/app/시그널-k-주식-주도주-테마-속보-수급/id6786105186"
+            },
+            {
+              "type": "android",
+              "label": "Android",
+              "url": "https://play.google.com/store/apps/details?id=com.neocode.stocknews&hl=ko"
+            }
+          ],
+          "ctaLabel": "자세히 보기",
+          "href": "https://play.google.com/store/apps/details?id=com.neocode.stocknews&hl=ko",
+          "iconUrl": "https://play.google.com/store/apps/details?id=com.neocode.stocknews&hl=ko",
+          "featured": true
         }
       ]
     },
