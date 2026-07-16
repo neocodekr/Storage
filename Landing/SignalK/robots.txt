@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://signalk.kr/sitemap.xml
