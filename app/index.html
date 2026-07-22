@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>앱 다운로드</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --head: #eef3f8;
+      --primary: #1463ff;
+      --primary-dark: #0d47bd;
+      --shadow: 0 16px 40px rgba(23, 32, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .subtext {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .admin-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+      font-size: 15px;
+    }
+
+    th {
+      background: var(--head);
+      color: #344054;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .number {
+      width: 80px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .app-name {
+      font-weight: 800;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .download-link:hover {
+      background: var(--primary-dark);
+    }
+
+    .empty {
+      padding: 44px 18px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1100px);
+        padding: 24px 0;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .admin-link {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <h1>앱 다운로드</h1>
+        <p class="subtext">필요한 앱을 선택해 다운로드하세요.</p>
+      </div>
+      <a class="admin-link" href="edit.html">목록 편집</a>
+    </header>
+
+    <section class="table-wrap" aria-label="앱 다운로드 목록">
+      <table>
+        <thead>
+          <tr>
+            <th class="number">번호</th>
+            <th>앱 이름</th>
+            <th>다운로드</th>
+          </tr>
+        </thead>
+        <tbody id="appTableBody"></tbody>
+      </table>
+      <div id="emptyState" class="empty" hidden>등록된 앱이 없습니다.</div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "app-download-list";
+
+    function loadApps() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : [];
+      } catch (error) {
+        console.error("앱 목록을 불러오지 못했습니다.", error);
+        return [];
+      }
+    }
+
+    function renderApps() {
+      const apps = loadApps();
+      const tableBody = document.getElementById("appTableBody");
+      const emptyState = document.getElementById("emptyState");
+
+      tableBody.innerHTML = "";
+      emptyState.hidden = apps.length > 0;
+
+      apps.forEach((app, index) => {
+        const row = document.createElement("tr");
+
+        const numberCell = document.createElement("td");
+        numberCell.className = "number";
+        numberCell.textContent = index + 1;
+
+        const nameCell = document.createElement("td");
+        nameCell.className = "app-name";
+        nameCell.textContent = app.name;
+
+        const downloadCell = document.createElement("td");
+        const link = document.createElement("a");
+        link.className = "download-link";
+        link.href = app.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "다운로드";
+        downloadCell.appendChild(link);
+
+        row.append(numberCell, nameCell, downloadCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+    renderApps();
+    window.addEventListener("storage", renderApps);
+  </script>
+</body>
+</html>
