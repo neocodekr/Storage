@@ -60,6 +60,7 @@
     .admin-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       min-height: 40px;
       padding: 0 14px;
       border: 1px solid var(--line);
@@ -150,10 +151,6 @@
         align-items: stretch;
         flex-direction: column;
       }
-
-      .admin-link {
-        justify-content: center;
-      }
     }
   </style>
 </head>
@@ -164,7 +161,7 @@
         <h1>앱 다운로드</h1>
         <p class="subtext">필요한 앱을 선택해 다운로드하세요.</p>
       </div>
-      <a class="admin-link" href="edit.html">목록 편집</a>
+      <a class="admin-link" href="editor.html">목록 편집</a>
     </header>
 
     <section class="table-wrap" aria-label="앱 다운로드 목록">
@@ -183,20 +180,36 @@
   </main>
 
   <script>
-    const STORAGE_KEY = "app-download-list";
+    const DATA_FILE = "apps.json";
 
-    function loadApps() {
+    function normalizeApps(data) {
+      const list = Array.isArray(data) ? data : data?.apps;
+      if (!Array.isArray(list)) {
+        return [];
+      }
+
+      return list
+        .map((app) => ({
+          name: String(app?.name || "").trim(),
+          url: String(app?.url || "").trim(),
+        }))
+        .filter((app) => app.name && /^https?:\/\//i.test(app.url));
+    }
+
+    async function loadApps() {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        return saved ? JSON.parse(saved) : [];
+        const response = await fetch(`${DATA_FILE}?t=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) {
+          return [];
+        }
+        return normalizeApps(await response.json());
       } catch (error) {
-        console.error("앱 목록을 불러오지 못했습니다.", error);
+        console.error("apps.json을 불러오지 못했습니다.", error);
         return [];
       }
     }
 
-    function renderApps() {
-      const apps = loadApps();
+    function renderApps(apps) {
       const tableBody = document.getElementById("appTableBody");
       const emptyState = document.getElementById("emptyState");
 
@@ -228,8 +241,12 @@
       });
     }
 
-    renderApps();
-    window.addEventListener("storage", renderApps);
+    async function initialize() {
+      renderApps(await loadApps());
+    }
+
+    initialize();
+    window.addEventListener("storage", initialize);
   </script>
 </body>
 </html>
