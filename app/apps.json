@@ -43,11 +43,11 @@
     "name": "시그널 G",
     "url": "https://play.google.com/apps/internaltest/4701438986592710452"
   },
- {
+  {
     "name": "시그널 D",
     "url": "https://play.google.com/apps/internaltest/4701658569850379182"
   },
-    {
+  {
     "name": "Reelon",
     "url": "https://play.google.com/apps/internaltest/4701356138277061202"
   },
@@ -55,11 +55,11 @@
     "name": "QR Scanner",
     "url": "https://play.google.com/apps/internaltest/4699989908509946714"
   },
-    {
+  {
     "name": "Slient Camera",
     "url": "https://play.google.com/apps/internaltest/4701384531970556642"
   },
-      {
+  {
     "name": "KidPin",
     "url": "https://play.google.com/apps/internaltest/4701322275064643553"
   },
@@ -67,12 +67,16 @@
     "name": "Record Screen",
     "url": "https://play.google.com/apps/internaltest/4701434769476241103"
   },
-    {
+  {
     "name": "Random Chat",
     "url": "https://play.google.com/apps/internaltest/4701627503213625119"
   },
-      {
+  {
     "name": "Document OCR",
     "url": "https://play.google.com/apps/internaltest/4700995764969843533"
+  },
+  {
+    "name": "시그널 C",
+    "url": "https://play.google.com/apps/internaltest/4701753047723389626"
   }
 ]
