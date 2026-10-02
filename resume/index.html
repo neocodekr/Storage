@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="C#·Unity 기반 클라이언트 개발자 박은성의 경력기술서">
+  <meta name="theme-color" content="#111827">
+  <title>박은성 | 경력기술서</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 15h17c10 0 16 5 16 13 0 5-3 9-8 11l10 10H39l-8-8h-3v8H17V15zm11 9v9h6c3 0 5-2 5-5s-2-4-5-4h-6z' fill='%2338bdf8'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #101828;
+      --muted: #5d6b80;
+      --line: #dbe3ee;
+      --surface: #f5f8fc;
+      --paper: #ffffff;
+      --navy: #111827;
+      --blue: #176bce;
+      --cyan: #36bffa;
+      --accent: #eff8ff;
+      --radius: 18px;
+      --shadow: 0 20px 55px rgba(15, 23, 42, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eaf0f7;
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    .shell {
+      width: min(1180px, calc(100% - 36px));
+      margin: 28px auto;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 500px;
+      padding: 30px 56px 52px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 15%, rgba(56,189,248,.30), transparent 28%),
+        linear-gradient(125deg, #0b1220 0%, #14233d 58%, #164e70 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: auto -70px -210px auto;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      box-shadow: 0 0 0 58px rgba(255,255,255,.035), 0 0 0 116px rgba(255,255,255,.025);
+    }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .mark { font-weight: 800; letter-spacing: -.03em; }
+    .mark span { color: var(--cyan); }
+    .top-actions { display: flex; align-items: center; gap: 22px; }
+    .top-actions a { color: rgba(255,255,255,.75); font-size: .88rem; text-decoration: none; }
+    .print-btn {
+      border: 1px solid rgba(255,255,255,.36);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border-radius: 999px;
+      padding: 9px 16px;
+      cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .print-btn:hover { background: rgba(255,255,255,.16); transform: translateY(-1px); }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 60px; align-items: end; padding-top: 94px; }
+    .eyebrow { margin: 0 0 12px; color: #7dd3fc; font-size: .84rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(3.4rem, 8vw, 6.6rem); line-height: .95; letter-spacing: -.075em; }
+    .role { margin: 22px 0 0; max-width: 670px; color: rgba(255,255,255,.9); font-size: clamp(1.1rem, 2vw, 1.38rem); font-weight: 600; line-height: 1.5; }
+    .hero-copy { margin: 14px 0 0; max-width: 650px; color: rgba(255,255,255,.68); }
+    .profile-side { display: grid; grid-template-columns: 124px 1fr; gap: 24px; align-items: end; }
+    .profile-photo { width: 124px; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid rgba(255,255,255,.28); border-radius: 14px; background: #fff; box-shadow: 0 14px 32px rgba(0,0,0,.22); }
+    .profile-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .contact { border-left: 1px solid rgba(255,255,255,.2); padding-left: 28px; }
+    .contact-label { margin: 0 0 4px; color: rgba(255,255,255,.48); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .contact a, .contact p { display: block; margin: 0 0 12px; color: #fff; text-decoration: none; overflow-wrap: anywhere; }
+    .email-link { white-space: nowrap; overflow-wrap: normal !important; }
+    .content { padding: 0 56px 72px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 0;
+      margin-top: -1px;
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+    }
+    .stat-panel { display: grid; grid-template-columns: 1fr 1fr; background: var(--accent); }
+    .stat { padding: 30px; border-right: 1px solid #cfe8ff; border-bottom: 1px solid #cfe8ff; }
+    .stat:nth-child(even) { border-right: 0; }
+    .stat:nth-last-child(-n+2) { border-bottom: 0; }
+    .stat strong { display: block; color: var(--blue); font-size: 1.7rem; line-height: 1.2; letter-spacing: -.04em; }
+    .stat span { color: var(--muted); font-size: .85rem; }
+    .intro { padding: 32px 36px; }
+    .intro h2 { margin: 0 0 12px; font-size: 1.15rem; }
+    .intro p { margin: 0; color: var(--muted); }
+    .education-list { border-top: 1px solid var(--line); }
+    .education-row { display: grid; grid-template-columns: 190px 1fr auto; gap: 36px; align-items: center; padding: 23px 0; border-bottom: 1px solid var(--line); }
+    .education-row strong { font-size: 1.08rem; }
+    .education-row span { color: var(--muted); }
+    .education-date { font-weight: 700; white-space: nowrap; }
+    section { scroll-margin-top: 20px; padding-top: 78px; }
+    .section-head { display: grid; grid-template-columns: 190px 1fr; gap: 36px; align-items: start; margin-bottom: 32px; }
+    .section-index { color: var(--blue); font-size: .82rem; font-weight: 800; letter-spacing: .1em; }
+    .section-title h2 { margin: 0; font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.15; letter-spacing: -.055em; }
+    .section-title p { margin: 10px 0 0; max-width: 660px; color: var(--muted); }
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .skill { min-height: 148px; padding: 24px; background: var(--surface); border: 1px solid #e5ebf3; border-radius: 14px; }
+    .skill-num { color: var(--blue); font-size: .76rem; font-weight: 800; }
+    .skill h3 { margin: 22px 0 8px; font-size: 1.02rem; }
+    .skill p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    .timeline { position: relative; margin-left: 190px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 16px; bottom: 10px; width: 1px; background: var(--line); }
+    .project { position: relative; display: grid; grid-template-columns: 165px 1fr; gap: 28px; padding: 0 0 52px 38px; }
+    .project::before { content: ""; position: absolute; left: 3px; top: 9px; width: 11px; height: 11px; border: 3px solid var(--paper); border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+    .project:last-child { padding-bottom: 0; }
+    .project-meta time { display: block; font-size: .86rem; font-weight: 750; }
+    .project-meta span { display: block; margin-top: 5px; color: var(--muted); font-size: .82rem; }
+    .project-body { padding-bottom: 30px; border-bottom: 1px solid var(--line); }
+    .project:last-child .project-body { border-bottom: 0; }
+    .project-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .project h3 { margin: 0; font-size: 1.45rem; line-height: 1.3; letter-spacing: -.03em; }
+    .company { flex: none; color: var(--blue); font-size: .84rem; font-weight: 750; }
+    .project-desc { margin: 9px 0 16px; color: var(--muted); }
+    .duties { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+    .duties li { position: relative; padding-left: 18px; }
+    .duties li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 2px; background: var(--cyan); }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .tag { padding: 5px 9px; color: #344054; background: #f2f4f7; border-radius: 6px; font-size: .76rem; font-weight: 650; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; }
+    .project-link { color: var(--blue); font-size: .84rem; font-weight: 750; text-decoration: underline; text-decoration-color: #9dc8f8; text-underline-offset: 4px; }
+    .project-link:hover { color: #0b4f9c; text-decoration-color: currentColor; }
+    .archive { background: var(--navy); color: #fff; margin: 78px -56px -72px; padding: 68px 56px 54px; }
+    .archive .section-head { margin-bottom: 26px; }
+    .archive .section-title p { color: rgba(255,255,255,.62); }
+    .archive .section-index { color: var(--cyan); }
+    .archive-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); }
+    details { background: #111c30; }
+    summary { display: flex; justify-content: space-between; gap: 18px; padding: 19px 20px; cursor: pointer; list-style: none; font-weight: 700; }
+    summary::-webkit-details-marker { display: none; }
+    summary span { color: rgba(255,255,255,.5); font-size: .8rem; font-weight: 500; }
+    details p { margin: 0; padding: 0 20px 20px; color: rgba(255,255,255,.68); font-size: .9rem; }
+    .footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 46px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.5); font-size: .8rem; }
+    @media (max-width: 900px) {
+      .hero, .content { padding-left: 28px; padding-right: 28px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; padding-top: 66px; }
+      .profile-side { grid-template-columns: 120px 1fr; align-items: center; }
+      .contact { display: grid; grid-template-columns: 1fr 1fr; border-left: 0; border-top: 1px solid rgba(255,255,255,.2); padding: 22px 0 0; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .section-head { grid-template-columns: 1fr; gap: 7px; }
+      .timeline { margin-left: 0; }
+      .archive { margin-left: -28px; margin-right: -28px; padding-left: 28px; padding-right: 28px; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: 100%; margin: 0; border-radius: 0; }
+      .hero { min-height: auto; padding-top: 22px; }
+      .top-actions a { display: none; }
+      h1 { font-size: 3.5rem; }
+      .hero-grid { padding-top: 54px; }
+      .profile-side { grid-template-columns: 72px 1fr; gap: 12px; }
+      .profile-photo { width: 72px; border-radius: 9px; }
+      .contact { grid-template-columns: 1fr; }
+      .email-link { font-size: .88rem; letter-spacing: -.02em; }
+      .summary-grid { border-left: 0; border-right: 0; border-radius: 0; }
+      .stat { padding: 22px 18px; }
+      .intro { padding: 26px 22px; }
+      section { padding-top: 60px; }
+      .skills { grid-template-columns: 1fr; }
+      .skill { min-height: 0; }
+      .project { grid-template-columns: 1fr; gap: 8px; padding-left: 31px; padding-bottom: 42px; }
+      .project-meta { display: flex; gap: 12px; align-items: baseline; }
+      .project-meta span { margin: 0; }
+      .project-top { display: block; }
+      .company { display: block; margin-top: 4px; }
+      .education-row { grid-template-columns: 1fr; gap: 3px; padding: 18px 0; }
+      .archive-list { grid-template-columns: 1fr; }
+      .footer { display: block; }
+    }
+    @media print {
+      body { background: #fff; font-size: 10.5pt; }
+      .shell { width: 100%; margin: 0; box-shadow: none; border-radius: 0; }
+      .hero { min-height: auto; padding: 26px 34px 34px; background: #111827 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .top-actions, .archive { display: none; }
+      .hero-grid { padding-top: 38px; }
+      .content { padding: 0 34px 40px; }
+      section { padding-top: 42px; }
+      .project { break-inside: avoid; padding-bottom: 28px; }
+      .skills { grid-template-columns: repeat(4, 1fr); }
+      .project-link { color: #000; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <nav class="topbar" aria-label="페이지 내 이동">
+        <div class="mark">PARK EUNSUNG<span>.</span></div>
+        <div class="top-actions">
+          <a href="#experience">주요 경력</a>
+          <a href="#archive">전체 프로젝트</a>
+          <button class="print-btn" type="button" onclick="window.print()">인쇄하기</button>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Career Profile · Client Developer</p>
+          <h1>박은성</h1>
+          <p class="role">현장 장비부터 모바일 게임까지 연결하는<br>C# · Unity 클라이언트 개발자</p>
+          <p class="hero-copy">Windows 응용프로그램, 키오스크, 모바일 게임을 넘나들며 하드웨어 연동과 서비스 출시까지 완결해 온 13년+ 경력의 개발자입니다.</p>
+        </div>
+        <div class="profile-side">
+          <div class="profile-photo"><img src="assets/profile.png" alt="박은성 프로필 사진"></div>
+          <div class="contact">
+            <div>
+              <p class="contact-label">Phone</p>
+              <a href="tel:+821040321633">010-4032-1633</a>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <a class="email-link" href="mailto:neocode.kr@gmail.com">neocode.kr@gmail.com</a>
+            </div>
+            <div>
+              <p class="contact-label">Focus</p>
+              <p>C# · Unity · WinForms · WPF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="summary-grid" aria-label="경력 요약">
+        <div class="stat-panel">
+          <div class="stat"><strong>13년+</strong><span>클라이언트 개발 경력</span></div>
+          <div class="stat"><strong>20+</strong><span>프로젝트 수행</span></div>
+          <div class="stat"><strong>3개</strong><span>Windows · Android · iOS</span></div>
+          <div class="stat"><strong>프로젝트 리더</strong><span>개발 리딩 경험</span></div>
+        </div>
+        <div class="intro">
+          <h2>Professional Summary</h2>
+          <p>산업·의료 현장의 Windows 솔루션과 Unity 기반 모바일 서비스를 모두 경험했습니다. 카메라, PLC, 카드리더기, 프린터 같은 장비 연동부터 REST API, 앱 출시, 빌드 자동화, 보안 적용까지 제품이 실제 환경에서 동작하는 데 필요한 전 과정을 주도적으로 수행합니다.</p>
+        </div>
+      </div>
+
+      <section id="education">
+        <div class="section-head">
+          <div class="section-index">01 · EDUCATION</div>
+          <div class="section-title"><h2>학력사항</h2></div>
+        </div>
+        <div class="education-list">
+          <div class="education-row">
+            <strong>방송통신대학교</strong>
+            <span>컴퓨터과학과 · 졸업</span>
+            <span class="education-date">2025년 2월</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-head">
+          <div class="section-index">02 · CORE</div>
+          <div class="section-title">
+            <h2>핵심 역량</h2>
+            <p>게임 클라이언트와 산업용 응용프로그램 경험을 바탕으로 화면, 데이터, 장비, 배포를 하나의 흐름으로 연결합니다.</p>
+          </div>
+        </div>
+        <div class="skills">
+          <article class="skill"><span class="skill-num">01</span><h3>C# 클라이언트</h3><p>WinForms·WPF 기반 업무용 프로그램, 키오스크, DID 화면 설계 및 개발</p></article>
+          <article class="skill"><span class="skill-num">02</span><h3>Unity 모바일</h3><p>게임·앱 콘텐츠 구현, Android/iOS 빌드, SDK·SSO·푸시 연동</p></article>
+          <article class="skill"><span class="skill-num">03</span><h3>장비·설비 연동</h3><p>카메라, CCTV, PLC, 카드리더기, 프린터, BLE·RFID 장비 제어</p></article>
+          <article class="skill"><span class="skill-num">04</span><h3>출시·운영</h3><p>REST API, Addressables, Jenkins, AAB PAD, 최적화 및 유지보수</p></article>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-head">
+          <div class="section-index">03 · EXPERIENCE</div>
+          <div class="section-title">
+            <h2>주요 프로젝트 경력</h2>
+            <p>직무 관련도와 최신 순으로 정리했습니다. 각 프로젝트에서 실제로 맡은 역할과 구현 범위를 중심으로 기술했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="project">
+            <div class="project-meta"><time>2026.06 — 현재</time><span>SNS 마케팅 자동화</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>SNS 인플루언서 협찬 시딩 자동화 시스템</h3></div>
+              <p class="project-desc">브랜드와 캠페인 조건에 맞는 SNS 인플루언서를 탐색하고 협찬 시딩 과정을 효율적으로 관리하는 자동화 시스템입니다.</p>
+              <ul class="duties">
+                <li>SNS 인플루언서 계정 및 콘텐츠 정보 수집 자동화</li>
+                <li>캠페인 조건에 따른 협찬 후보 분류와 시딩 대상 목록 관리</li>
+                <li>협찬 제안, 응답 및 진행 상태를 추적하는 업무 흐름 구현</li>
+                <li>반복 작업 자동화와 오류·예외 상황을 확인할 수 있는 운영 기능 개발</li>
+              </ul>
+              <div class="tags"><span class="tag">SNS</span><span class="tag">Automation</span><span class="tag">Influencer Seeding</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2025.04 — 현재</time><span>Windows 솔루션</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>수술 기구 멸균 추적 시스템</h3><span class="company">위메진소프트</span></div>
+              <p class="project-desc">수술 기구의 멸균 처리 이력과 상태를 현장에서 조회·관리하는 Windows 기반 시스템입니다.</p>
+              <ul class="duties">
+                <li>C# WinForms 기반 멸균 이력 조회 및 관리 화면 개발</li>
+                <li>MariaDB 연동 데이터 처리 구조와 업무 흐름 구현</li>
+                <li>현장 사용성을 고려한 상태 표시, 입력 검증, 예외 처리 개선</li>
+              </ul>
+              <div class="tags"><span class="tag">C#</span><span class="tag">WinForms</span><span class="tag">MariaDB</span><span class="tag">Windows</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2025.01 — 2025.03</time><span>POC</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>물류센터 바코드 리딩 시스템 POC</h3><span class="company">버터소프트</span></div>
+              <p class="project-desc">물류 현장의 바코드 판독 결과를 영상·알림 장치와 연결해 검증하는 개념 증명 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>H사 바코드 카메라 SDK 연동 및 판독 데이터 수신 처리</li>
+                <li>CCTV 영상 연동과 판독 결과 확인 화면 구현</li>
+                <li>경광등 제어를 포함한 정상·오류 상태 알림 흐름 개발</li>
+                <li>WinForms 기반 운영 UI와 장치 연결 상태 모니터링 구현</li>
+              </ul>
+              <div class="tags"><span class="tag">C#</span><span class="tag">WinForms</span><span class="tag">Camera SDK</span><span class="tag">CCTV</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2024.10 — 2025.03</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>Sweet Home : 퍼즐 블라스트</h3><span class="company">버터소프트</span></div>
+              <p class="project-desc">Unity 기반 Android·iOS 퍼즐 게임 클라이언트 개발 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>Unity C# 기반 퍼즐 게임 클라이언트 기능 및 UI 개발</li>
+                <li>REST API 연동을 통한 게임 데이터 송수신 처리</li>
+                <li>Android·iOS 빌드 대응과 기기별 실행 이슈 점검</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">REST API</span><span class="tag">Android / iOS</span></div>
+              <div class="project-links"><a class="project-link" href="https://play.google.com/store/apps/details?id=com.puzzle1studio.go.sweetlife&amp;hl=ko" target="_blank" rel="noopener noreferrer">Google Play에서 보기</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2024.11 — 2025.01</time><span>웹 게임 · 텔레그램 미니앱</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>Idle 방치형 게임 웹버전</h3></div>
+              <p class="project-desc">방치형 게임을 웹 환경과 Telegram Mini App에서 실행할 수 있도록 개발한 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>Idle 방치형 게임의 웹 클라이언트 기능 및 UI 개발</li>
+                <li>Telegram Mini App 실행 환경에 맞춘 웹버전 적용</li>
+                <li>모바일 웹 화면 대응과 게임 진행 상태 처리</li>
+              </ul>
+              <div class="tags"><span class="tag">Web Game</span><span class="tag">Telegram Mini App</span><span class="tag">Idle Game</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2024.10 — 2024.11</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>Link : Adventure Story</h3><span class="company">버터소프트</span></div>
+              <p class="project-desc">Unity 기반 Android·iOS 모바일 게임 클라이언트 개발 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>Unity C# 기반 게임 클라이언트 기능 및 화면 UI 개발</li>
+                <li>Android·iOS 빌드와 출시 환경 대응</li>
+                <li>카이아 코인 기반 LINE DApp 웹버전 개발</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android / iOS</span><span class="tag">Kaia</span><span class="tag">LINE DApp</span></div>
+              <div class="project-links"><a class="project-link" href="https://apps.apple.com/kr/app/link-adventure-story/id6670151849" target="_blank" rel="noopener noreferrer">App Store에서 보기</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2023.12 — 2024.10</time><span>모바일 앱 · 프로젝트 리더</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>Heartee</h3><span class="company">맥스트</span></div>
+              <p class="project-desc">위치 기반 활동과 리워드 요소를 결합한 Unity 기반 앱테크 서비스입니다.</p>
+              <ul class="duties">
+                <li>Unity 기반 Android 클라이언트 구조 설계 및 핵심 기능 개발</li>
+                <li>만보기 데이터 처리와 푸시 알림 기능 구현</li>
+                <li>이미지·동영상 리소스 로딩 및 메모리 사용 최적화</li>
+                <li>WebView와 Mapbox 지도를 결합한 위치 기반 화면 구현</li>
+                <li>Google Play 출시 빌드 및 배포 이슈 대응</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Mapbox</span><span class="tag">WebView</span><span class="tag">Android</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2023.05 — 2023.11</time><span>모바일 게임 · 프로젝트 리더</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>팝스월드</h3><span class="company">팝스라인</span></div>
+              <p class="project-desc">테마파크 운영과 AR 게임을 결합한 Unity 기반 시뮬레이션 게임 앱입니다.</p>
+              <ul class="duties">
+                <li>SSO, 랭킹, 건물 구매·코인 생산, 미션, AR 게임 등 클라이언트 콘텐츠 전반 개발</li>
+                <li>Addressables 그룹 구성과 리소스 업데이트 구조 적용</li>
+                <li>Jenkins 연동 빌드 프로세스 구성 및 Android·iOS 출시 대응</li>
+                <li>AAB Play Asset Delivery 적용으로 대용량 리소스 배포 구조 개선</li>
+                <li>Anti-Cheat Toolkit·Obfuscator 적용 및 PC 버전 개발 방향 설계</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">Addressables</span><span class="tag">Jenkins</span><span class="tag">AAB PAD</span><span class="tag">AR</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2020.04 — 2022.09</time><span>키오스크 · 매니저</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>민팃 ATM 및 공장 자동화</h3><span class="company">민팃</span></div>
+              <p class="project-desc">전국 통신 대리점과 대형마트에 설치된 중고폰 매입 키오스크 및 검사 공정 시스템입니다.</p>
+              <ul class="duties">
+                <li>SKT·KT·LGU+ 대리점용 미니 ATM과 대형마트용 ATM 기능 개발·유지보수</li>
+                <li>MCU, IP 카메라, 써멀 프린터 등 키오스크 하드웨어 연동</li>
+                <li>REST API 기반 서버 통신 및 장비 상태·거래 흐름 처리</li>
+                <li>스마트폰 검사 공장 자동화를 위한 미쓰비시 PLC 제어 연동</li>
+              </ul>
+              <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">REST API</span><span class="tag">Kiosk</span><span class="tag">PLC</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2019.03 — 2020.04</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>이카루스M · 삼국지를품다2</h3><span class="company">밸로프 · 산업기능요원</span></div>
+              <p class="project-desc">Unreal Engine과 Unity 기반 라이브 모바일 게임의 신규 콘텐츠 및 운영 개선을 담당했습니다.</p>
+              <ul class="duties">
+                <li>이카루스M 서버대항전 시스템과 인벤토리 개선, UI 리뉴얼 개발</li>
+                <li>iOS 13 대응, 잔존 버그 수정, 기획 도구 개선</li>
+                <li>삼국지를품다2 레이드 시스템 및 Facebook SDK 연동</li>
+              </ul>
+              <div class="tags"><span class="tag">Unreal Engine 4</span><span class="tag">Unity</span><span class="tag">C++</span><span class="tag">C#</span></div>
+              <div class="project-links">
+                <a class="project-link" href="https://www.youtube.com/watch?v=asrSCn90WBU" target="_blank" rel="noopener noreferrer">이카루스M 영상 보기</a>
+                <a class="project-link" href="https://www.youtube.com/watch?v=Lq5ExC9ER5k" target="_blank" rel="noopener noreferrer">삼국지를 품다 2 영상 보기</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2017.03 — 2019.03</time><span>Windows · 의료/산업</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>의료·산업용 Windows 솔루션</h3><span class="company">공간소프트 · 산업기능요원</span></div>
+              <p class="project-desc">의료원 안내, 환자 위치 추적, 전자처방, 무인수납 등 다수의 현장 솔루션을 개발했습니다.</p>
+              <ul class="duties">
+                <li>BLE 기반 환자 위치 추적 서버·모니터링·진료대기 DID 개발</li>
+                <li>병원 OCS 연동 키오스크, 무인수납기, 전자서명 패드 프로그램 구현</li>
+                <li>통합 라벨 프린터 시스템과 라벨 편집 도구, PDF 처방전 생성 도구 개발</li>
+                <li>공장 데이터 수집·모니터링 및 NAS FTP 자동 업로드 클라이언트 개발</li>
+              </ul>
+              <div class="tags"><span class="tag">C#</span><span class="tag">WinForms / WPF</span><span class="tag">Oracle / MSSQL</span><span class="tag">BLE</span><span class="tag">TCP/IP</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2016.08 — 2017.01</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>에잇킹덤즈 for Kakao</h3><span class="company">프렌즈게임즈</span></div>
+              <p class="project-desc">Unity 기반 2D 시뮬레이션 게임 클라이언트 개발 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>신규 사용자를 위한 튜토리얼과 미션 시스템 개발</li>
+                <li>좌표 즐겨찾기 콘텐츠 및 화면 UI 리뉴얼 개발</li>
+                <li>서비스 운영 중 발생한 클라이언트 버그 수정</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span></div>
+              <div class="project-links"><a class="project-link" href="https://m.blog.naver.com/sachiel5/220969584779" target="_blank" rel="noopener noreferrer">게임 소개 보기</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2015.09 — 2016.08</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>삼국지를 품다</h3><span class="company">밸로프</span></div>
+              <p class="project-desc">이관받은 Unity 기반 3D MMORPG의 콘텐츠 개발과 외부 서비스 연동을 담당했습니다.</p>
+              <ul class="duties">
+                <li>게임 이관 작업과 신규 캐릭터 스킬 개발</li>
+                <li>초월 강화 콘텐츠 및 청용옥 재화 시스템 개발</li>
+                <li>Google Analytics, CrossShock SDK, Facebook 로그인 연동</li>
+              </ul>
+              <div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">SDK</span><span class="tag">Android</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2014.06 — 2015.02</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>아케인 for Kakao</h3><span class="company">플레이웍스</span></div>
+              <p class="project-desc">Cocos2d-x 기반 2D MMORPG 게임 클라이언트 개발 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>무한의 탑 시스템과 게임 화면 UI 개발</li>
+                <li>OpenKakao 로그인 기능 연동</li>
+              </ul>
+              <div class="tags"><span class="tag">Cocos2d-x</span><span class="tag">C++</span><span class="tag">OpenKakao</span></div>
+              <div class="project-links"><a class="project-link" href="https://play.google.com/store/apps/details?id=com.masang.arcanem&amp;hl=ko" target="_blank" rel="noopener noreferrer">Google Play에서 보기</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-meta"><time>2013.04 — 2014.06</time><span>모바일 게임</span></div>
+            <div class="project-body">
+              <div class="project-top"><h3>스카이러너 for Kakao</h3><span class="company">위브소프트</span></div>
+              <p class="project-desc">Cocos2d-x 기반 2D 러닝 게임 클라이언트 개발 프로젝트입니다.</p>
+              <ul class="duties">
+                <li>튜토리얼, 미션 콘텐츠 및 게임 화면 UI 개발</li>
+                <li>인게임 최적화와 iOS 포팅 작업</li>
+                <li>카카오톡 게임하기·결제·푸시 및 밴드 SDK 연동</li>
+              </ul>
+              <div class="tags"><span class="tag">Cocos2d-x</span><span class="tag">C++</span><span class="tag">iOS</span><span class="tag">Kakao SDK</span></div>
+              <div class="project-links"><a class="project-link" href="https://www.youtube.com/watch?v=3GtyRVLiiNc" target="_blank" rel="noopener noreferrer">게임 영상 보기</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="archive" id="archive">
+        <div class="section-head">
+          <div class="section-index">04 · ARCHIVE</div>
+          <div class="section-title"><h2>전체 프로젝트 아카이브</h2></div>
+        </div>
+        <div class="archive-list">
+          <details><summary>SNS 인플루언서 협찬 시딩 자동화 시스템 <span>2026.06 — 현재</span></summary><p>인플루언서 정보 수집, 협찬 후보 분류, 시딩 대상과 진행 상태를 관리하는 업무 자동화 시스템 개발.</p></details>
+          <details><summary>위메진소프트 · 수술 기구 멸균 추적 시스템 <span>2025.04 — 현재</span></summary><p>C# WinForms와 MariaDB 기반 멸균 이력 조회·관리 화면 및 현장 업무 흐름 개발.</p></details>
+          <details><summary>버터소프트 · 물류센터 바코드 리딩 시스템 POC <span>2025.01 — 2025.03</span></summary><p>바코드 카메라, CCTV, 경광등을 연동한 WinForms 기반 물류 현장 검증 시스템 개발.</p></details>
+          <details><summary>버터소프트 · Sweet Home : 퍼즐 블라스트 <span>2024.10 — 2025.03</span></summary><p>Unity 기반 Android·iOS 퍼즐 게임 기능·UI 개발과 REST API 및 출시 빌드 대응.</p></details>
+          <details><summary>Idle 방치형 게임 웹버전 <span>2024.11 — 2025.01</span></summary><p>웹 클라이언트 기능·UI 개발과 Telegram Mini App 실행 환경 적용.</p></details>
+          <details><summary>버터소프트 · Link : Adventure Story <span>2024.10 — 2024.11</span></summary><p>Unity C# 기반 Android·iOS 모바일 게임 개발과 카이아 코인 기반 LINE DApp 웹버전 작업.</p></details>
+          <details><summary>맥스트 · Heartee <span>2023.12 — 2024.10</span></summary><p>Unity 기반 위치·리워드 앱의 만보기, 푸시 알림, 미디어 최적화, WebView·Mapbox 연동 및 Android 출시.</p></details>
+          <details><summary>팝스라인 · 팝스월드 <span>2023.05 — 2023.11</span></summary><p>프로젝트 리더로서 Unity 콘텐츠 전반, AR 게임, Addressables, Jenkins 빌드, AAB PAD와 보안 도구 적용.</p></details>
+          <details><summary>인스타그램 계정 육성 프로그램 <span>2023.02 — 2023.03</span></summary><p>자체 로그인 연동, 해시태그 기반 사용자 수집, 영향도 높은 계정 대상 좋아요·댓글·팔로우 자동화 기능 개발.</p></details>
+          <details><summary>둥근별 메타버스 도서관 <span>2022.11</span></summary><p>PC 메타버스 환경의 PDF eBook 열람 기능 개발 및 잔존 버그 수정.</p></details>
+          <details><summary>태블릿 카드 수납 앱 <span>2022.10</span></summary><p>진료번호 입력 UI, 나이스 카드리더기와 써멀 프린터 연동.</p></details>
+          <details><summary>KMI 검진대기 DID·안내 키오스크 <span>2021.02 — 2021.03</span></summary><p>RFID 기반 검진대기 DID와 검진실 위치 안내 키오스크 개발.</p></details>
+          <details><summary>선치과 진료대기 시스템 <span>2021.04</span></summary><p>OCS 연동 진료대기 DID 및 진료 호출 프로그램 개발.</p></details>
+          <details><summary>강동성심병원 환자 이송 세이버 <span>2021.03</span></summary><p>환자 이송 요청과 처리 내역을 관리하는 WinForms 프로그램 개발.</p></details>
+          <details><summary>트리니티 시스템 트레이딩 UI <span>2021.04 — 2021.06</span></summary><p>코인 유동성 공급 시스템 트레이딩 도구의 데스크톱 UI 개발.</p></details>
+          <details><summary>민팃 · ATM 및 공장 자동화 <span>2020.04 — 2022.09</span></summary><p>통신 대리점·대형마트 중고폰 매입 ATM, 키오스크 장비 연동, REST API 및 미쓰비시 PLC 기반 공장 자동화 개발.</p></details>
+          <details><summary>밸로프 · 이카루스M / 삼국지를품다2 <span>2019.03 — 2020.04</span></summary><p>Unreal Engine·Unity 기반 모바일 게임의 신규 콘텐츠, UI 개선, iOS 대응과 외부 SDK 연동.</p></details>
+          <details><summary>공간소프트 · 계명대학교 동산의료원 안내 키오스크 <span>2019.02 — 2019.03</span></summary><p>병원 안내 키오스크, 진료실 위치를 표시하는 맵 편집 도구, 안내 정보 프린터 출력 연동 개발.</p></details>
+          <details><summary>공간소프트 · 전국 의료원 라벨 프린터 솔루션 <span>2019.01 — 2019.02</span></summary><p>병원 전산 연동 웹서버, 환자 팔찌용 통합 라벨 출력 시스템과 라벨지 편집 도구 개발.</p></details>
+          <details><summary>공간소프트 · 전자처방전 시스템 <span>2018.06 — 2018.09</span></summary><p>대학병원 전자처방전 도입을 위한 네이버 클라우드 기반 소켓 서버 운영 및 처방전 PDF 생성 도구 개발.</p></details>
+          <details><summary>공간소프트 · H+ 양지병원 진료대기 시스템 <span>2018.07</span></summary><p>병원 OCS와 연동해 진료 대기 순서를 표시하는 DID 화면 개발.</p></details>
+          <details><summary>공간소프트 · 안성성모병원 무인수납기 <span>2018.06</span></summary><p>진료비 무인 수납 키오스크, 병원 OCS 연동, 영수증·안내 문서 프린터 출력 기능 개발.</p></details>
+          <details><summary>공간소프트 · 선치과 전자서명 펜툴 <span>2018.04 — 2018.06</span></summary><p>시술·수술 동의서용 전자서명 패드 연동과 프로그램 자동 업데이트 기능 개발.</p></details>
+          <details><summary>공간소프트 · 서주미르 진료대기 시스템 <span>2018.02 — 2018.03</span></summary><p>BLE 기반 환자 위치 추적, 진료대기 DID, 진료 호출 및 접수 프로그램 개발.</p></details>
+          <details><summary>공간소프트 · 만도 공정 데이터 NAS 업로드 <span>2017.11 — 2017.12</span></summary><p>공장 발생 데이터의 전송 상태를 확인하는 모니터링 프로그램과 NAS FTP 자동 업로드 클라이언트 개발.</p></details>
+          <details><summary>공간소프트 · 국립중앙의료원 이동형병원 위치 추적 <span>2017.04 — 2017.08</span></summary><p>재난 현장 이동형병원을 위한 BLE 환자 위치 추적, 모니터링 프로그램 및 위치 관리 서버 개발.</p></details>
+          <details><summary>프렌즈게임즈 · 에잇킹덤즈 for Kakao <span>2016.08 — 2017.01</span></summary><p>Unity 기반 2D 시뮬레이션 게임에서 튜토리얼, 미션, 좌표 즐겨찾기 콘텐츠와 UI 리뉴얼을 개발하고 잔존 버그를 수정.</p></details>
+          <details><summary>밸로프 · 삼국지를 품다 <span>2015.09 — 2016.08</span></summary><p>게임 이관, 캐릭터 스킬·강화·재화 시스템과 로그인·분석 SDK 연동.</p></details>
+          <details><summary>플레이웍스 · 아케인 for Kakao <span>2014.06 — 2015.02</span></summary><p>Cocos2d-x 기반 2D MMORPG 클라이언트의 무한의 탑 시스템과 UI를 개발하고 OpenKakao 로그인을 연동.</p></details>
+          <details><summary>위브소프트 · 스카이러너 for Kakao <span>2013.04 — 2014.06</span></summary><p>Cocos2d-x 기반 2D 러닝 게임의 튜토리얼·미션·UI 개발, 인게임 최적화, iOS 포팅, 카카오톡 게임하기·결제·푸시 및 밴드 SDK 연동.</p></details>
+        </div>
+        <div class="footer"><span>박은성 · C# / Unity Client Developer</span><span>정보처리기능사 · 2014.04.22</span></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
