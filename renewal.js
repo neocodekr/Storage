@@ -39,7 +39,7 @@ class ProductCatalog {
     }
     const actions = links.map(([label, href]) => `<a href="${escapeHtml(safeUrl(href))}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)} ↗</a>`).join('');
     const platforms = (item.card.platforms || []).map((platform) => platform.label).join(' · ');
-    return `<a class="back" href="#all-products">← 전체 제품</a><div class="detail-layout"><div><p class="eyebrow">NEOCODE PRODUCT</p><h1>${escapeHtml(item.name)}</h1><p>${escapeHtml(item.summary)}</p><div class="platforms">${escapeHtml(platforms)}</div><div class="detail-actions">${actions}<a href="mailto:admin@neocode.co.kr?subject=${encodeURIComponent(item.name + ' 제품 문의')}">이 제품 문의</a></div></div><img src="${escapeHtml(safeUrl(image))}" alt="${escapeHtml(item.name)} 제품 화면"></div><div class="detail-extra"><h2>제품 소개</h2><p>${escapeHtml(item.card.description.replace(/^설명을 입력하세요\./, ''))}</p></div>`;
+    return `<a class="back" href="#all-products">← 전체 제품</a><div class="detail-layout"><div><p class="eyebrow">NEOCODE PRODUCT</p><h1>${escapeHtml(item.name)}</h1><p>${escapeHtml(item.summary)}</p><div class="platforms">${escapeHtml(platforms)}</div><div class="detail-actions">${actions}<a href="mailto:neocode.kr@gmail.com?subject=${encodeURIComponent(item.name + ' 제품 문의')}">이 제품 문의</a></div></div><img src="${escapeHtml(safeUrl(image))}" alt="${escapeHtml(item.name)} 제품 화면"></div><div class="detail-extra"><h2>제품 소개</h2><p>${escapeHtml(item.card.description.replace(/^설명을 입력하세요\./, ''))}</p></div>`;
   }
 }
 
@@ -77,13 +77,41 @@ menu.addEventListener('click', (event) => {
     document.querySelector('#menu-toggle').setAttribute('aria-expanded', 'false');
   }
 });
-document.querySelector('#contact-form').addEventListener('submit', (event) => {
+document.querySelector('#contact-form').addEventListener('submit', async (event) => {
   event.preventDefault();
-  const values = Object.fromEntries(new FormData(event.currentTarget));
-  const subject = encodeURIComponent('[NEOCODE 프로젝트 문의] ' + values.type);
-  const body = encodeURIComponent(`이름/회사: ${values.name}\n회신 이메일: ${values.email}\n전화번호: ${values.phone || '미입력'}\n문의 유형: ${values.type}\n\n${values.message}`);
-  location.href = `mailto:admin@neocode.co.kr?subject=${subject}&body=${body}`;
-  document.querySelector('#form-note').textContent = '메일 앱이 열렸다면 보내기를 눌러 주세요. 전송 여부는 메일 앱에서 확인할 수 있습니다.';
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const note = document.querySelector('#form-note');
+  const values = Object.fromEntries(new FormData(form));
+  button.disabled = true;
+  button.textContent = '전송 중...';
+  note.textContent = '문의 내용을 전송하고 있습니다.';
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/neocode.kr@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        phone: values.phone || '미입력',
+        inquiry_type: values.type,
+        message: values.message,
+        _subject: '[NEOCODE 프로젝트 문의] ' + values.type,
+        _honey: values.website || '',
+      }),
+    });
+    const result = await response.json();
+    if (!response.ok || result.success !== 'true' && result.success !== true) {
+      throw new Error('접수 요청을 확인하지 못했습니다.');
+    }
+    form.reset();
+    note.textContent = '전송 요청이 접수되었습니다. 최초 설정 시 수신 주소로 온 인증 메일을 확인해야 실제 메일이 전달됩니다.';
+  } catch {
+    note.innerHTML = '전송하지 못했습니다. 입력 내용은 유지됩니다. <a href="mailto:neocode.kr@gmail.com">이메일로 직접 문의하기</a>';
+  } finally {
+    button.disabled = false;
+    button.textContent = '문의 보내기 →';
+  }
 });
 main().catch((error) => {
   document.querySelector('#featured-products').textContent = error.message;
